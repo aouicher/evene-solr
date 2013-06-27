@@ -1,0 +1,945 @@
+0    [main] INFO  org.eclipse.jetty.server.Server  Ð jetty-8.1.8.v20121106
+24   [main] INFO  org.eclipse.jetty.deploy.providers.ScanningAppProvider  Ð Deployment monitor /opt/local/share/java/solr-4.3.0/example/contexts at interval 0
+31   [main] INFO  org.eclipse.jetty.deploy.DeploymentManager  Ð Deployable added: /opt/local/share/java/solr-4.3.0/example/contexts/solr-jetty-context.xml
+1112 [main] INFO  org.eclipse.jetty.webapp.StandardDescriptorProcessor  Ð NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+Null identity service, trying login service: null
+Finding identity service: null
+1214 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  Ð started o.e.j.w.WebAppContext{/solr,file:/opt/local/share/java/solr-4.3.0/example/solr-webapp/webapp/},/opt/local/share/java/solr-4.3.0/example/webapps/solr.war
+1215 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  Ð started o.e.j.w.WebAppContext{/solr,file:/opt/local/share/java/solr-4.3.0/example/solr-webapp/webapp/},/opt/local/share/java/solr-4.3.0/example/webapps/solr.war
+1239 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð SolrDispatchFilter.init()
+1270 [main] INFO  org.apache.solr.core.SolrResourceLoader  Ð JNDI not configured for solr (NoInitialContextEx)
+1271 [main] INFO  org.apache.solr.core.SolrResourceLoader  Ð solr home defaulted to 'solr/' (could not find system property or JNDI)
+1285 [main] INFO  org.apache.solr.core.CoreContainer  Ð looking for solr config file: /opt/local/share/java/solr-4.3.0/example/solr/solr.xml
+1289 [main] INFO  org.apache.solr.core.CoreContainer  Ð New CoreContainer 2136814472
+1290 [main] INFO  org.apache.solr.core.CoreContainer  Ð Loading CoreContainer using Solr Home: 'solr/'
+1290 [main] INFO  org.apache.solr.core.SolrResourceLoader  Ð new SolrResourceLoader for directory: 'solr/'
+1937 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting socketTimeout to: 0
+1938 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting urlScheme to: http://
+1938 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting connTimeout to: 0
+1941 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting maxConnectionsPerHost to: 20
+1942 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting corePoolSize to: 0
+1942 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting maximumPoolSize to: 2147483647
+1943 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting maxThreadIdleTime to: 5
+1943 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting sizeOfQueue to: -1
+1943 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting fairnessPolicy to: false
+1955 [main] INFO  org.apache.solr.client.solrj.impl.HttpClientUtil  Ð Creating new http client, config:maxConnectionsPerHost=20&maxConnections=10000&socketTimeout=0&connTimeout=0&retry=false
+2395 [main] INFO  org.apache.solr.core.CoreContainer  Ð Registering Log Listener
+2422 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CoreContainer  Ð Creating SolrCore 'collection1' using instanceDir: solr/collection1
+2422 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð new SolrResourceLoader for directory: 'solr/collection1/'
+2481 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrConfig  Ð Adding specified lib dirs to ClassLoader
+2495 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/apache-mime4j-core-0.7.2.jar' to classloader
+2496 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/apache-mime4j-dom-0.7.2.jar' to classloader
+2496 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/bcmail-jdk15-1.45.jar' to classloader
+2496 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/bcprov-jdk15-1.45.jar' to classloader
+2497 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/boilerpipe-1.1.0.jar' to classloader
+2497 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/commons-compress-1.4.1.jar' to classloader
+2497 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/dom4j-1.6.1.jar' to classloader
+2498 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/fontbox-1.7.1.jar' to classloader
+2498 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/icu4j-49.1.jar' to classloader
+2499 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/isoparser-1.0-RC-1.jar' to classloader
+2499 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/jdom-1.0.jar' to classloader
+2499 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/jempbox-1.7.1.jar' to classloader
+2500 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/juniversalchardet-1.0.3.jar' to classloader
+2500 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/metadata-extractor-2.6.2.jar' to classloader
+2500 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/netcdf-4.2-min.jar' to classloader
+2501 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/pdfbox-1.7.1.jar' to classloader
+2501 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-3.8.jar' to classloader
+2501 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-ooxml-3.8.jar' to classloader
+2502 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-ooxml-schemas-3.8.jar' to classloader
+2502 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-scratchpad-3.8.jar' to classloader
+2503 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/rome-0.9.jar' to classloader
+2503 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/tagsoup-1.2.1.jar' to classloader
+2503 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/tika-core-1.3.jar' to classloader
+2504 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/tika-parsers-1.3.jar' to classloader
+2504 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/vorbis-java-core-0.1.jar' to classloader
+2504 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/vorbis-java-tika-0.1.jar' to classloader
+2505 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/xercesImpl-2.9.1.jar' to classloader
+2505 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/xmlbeans-2.3.0.jar' to classloader
+2506 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/xz-1.0.jar' to classloader
+2507 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-cell-4.3.0.jar' to classloader
+2508 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/attributes-binder-1.0.1.jar' to classloader
+2509 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/carrot2-mini-3.6.2.jar' to classloader
+2509 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/hppc-0.4.1.jar' to classloader
+2510 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/jackson-core-asl-1.7.4.jar' to classloader
+2510 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/jackson-mapper-asl-1.7.4.jar' to classloader
+2510 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/mahout-collections-1.0.jar' to classloader
+2510 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/mahout-math-0.6.jar' to classloader
+2511 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/simple-xml-2.6.4.jar' to classloader
+2511 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-clustering-4.3.0.jar' to classloader
+2512 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/langid/lib/jsonic-1.2.7.jar' to classloader
+2512 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/langid/lib/langdetect-1.1-20120112.jar' to classloader
+2513 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-langid-4.3.0.jar' to classloader
+2514 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/commons-beanutils-1.7.0.jar' to classloader
+2514 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/commons-collections-3.2.1.jar' to classloader
+2514 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/velocity-1.7.jar' to classloader
+2515 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/velocity-tools-2.0.jar' to classloader
+2515 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-velocity-4.3.0.jar' to classloader
+2516 [coreLoadExecutor-3-thread-1] WARN  org.apache.solr.core.SolrResourceLoader  Ð Can't find (or read) directory to add to classloader: /non/existent/dir/yields/warning (resolved as: /non/existent/dir/yields/warning).
+2690 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrConfig  Ð Using Lucene MatchVersion: LUCENE_43
+2931 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.Config  Ð Loaded SolrConfig: solrconfig.xml
+2940 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð Reading Solr Schema from schema.xml
+3098 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð Schema name=example
+4413 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð unique key field: id
+4566 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.FileExchangeRateProvider  Ð Reloading exchange rates from file currency.xml
+4576 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.FileExchangeRateProvider  Ð Reloading exchange rates from file currency.xml
+4737 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð solr.NRTCachingDirectoryFactory
+4746 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Opening new SolrCore at solr/collection1/, dataDir=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data/
+4748 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.JmxMonitoredMap  Ð JMX monitoring is enabled. Adding Solr mbeans to JMX Server: com.sun.jmx.mbeanserver.JmxMBeanServer@7878529d
+4783 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Added SolrEventListener for newSearcher: org.apache.solr.core.QuerySenderListener{queries=[]}
+4783 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Added SolrEventListener for firstSearcher: org.apache.solr.core.QuerySenderListener{queries=[{q=static firstSearcher warming in solrconfig.xml}]}
+4788 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð solr.NRTCachingDirectoryFactory
+4800 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð return new directory for /opt/local/share/java/solr-4.3.0/example/solr/collection1/data
+4801 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð New index directory detected: old=null new=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index/
+4801 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð return new directory for /opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index
+4827 [coreLoadExecutor-3-thread-1] ERROR org.apache.solr.core.SolrCore  Ð [collection1] Solr index directory '/opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index/' is locked.  Throwing exception
+4827 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1]  CLOSING SolrCore org.apache.solr.core.SolrCore@354124d6
+4828 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.update.SolrCoreState  Ð Closing SolrCoreState
+4829 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.update.DefaultSolrCoreState  Ð SolrCoreState ref count has reached 0 - closing IndexWriter
+4830 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Closing main searcher on request.
+4830 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð Closing NRTCachingDirectoryFactory - 2 directories currently being tracked
+4831 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð looking to close /opt/local/share/java/solr-4.3.0/example/solr/collection1/data [CachedDir<<refCount=0;path=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data;done=false>>]
+4831 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð Closing directory: /opt/local/share/java/solr-4.3.0/example/solr/collection1/data
+4832 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð looking to close /opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index [CachedDir<<refCount=0;path=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index;done=false>>]
+4832 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð Closing directory: /opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index
+4833 [coreLoadExecutor-3-thread-1] ERROR org.apache.solr.core.CoreContainer  Ð Unable to create core: collection1
+org.apache.solr.common.SolrException: Index locked for write for core collection1
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:821)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:618)
+	at org.apache.solr.core.CoreContainer.createFromLocal(CoreContainer.java:949)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:984)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:597)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:592)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:680)
+Caused by: org.apache.lucene.store.LockObtainFailedException: Index locked for write for core collection1
+	at org.apache.solr.core.SolrCore.initIndex(SolrCore.java:484)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:745)
+	... 13 more
+4836 [coreLoadExecutor-3-thread-1] ERROR org.apache.solr.core.CoreContainer  Ð null:org.apache.solr.common.SolrException: Unable to create core: collection1
+	at org.apache.solr.core.CoreContainer.recordAndThrow(CoreContainer.java:1450)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:993)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:597)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:592)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:680)
+Caused by: org.apache.solr.common.SolrException: Index locked for write for core collection1
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:821)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:618)
+	at org.apache.solr.core.CoreContainer.createFromLocal(CoreContainer.java:949)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:984)
+	... 10 more
+Caused by: org.apache.lucene.store.LockObtainFailedException: Index locked for write for core collection1
+	at org.apache.solr.core.SolrCore.initIndex(SolrCore.java:484)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:745)
+	... 13 more
+
+4838 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð user.dir=/opt/local/share/java/solr-4.3.0/example
+4838 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð SolrDispatchFilter.init() done
+4890 [main] WARN  org.eclipse.jetty.util.component.AbstractLifeCycle  Ð FAILED SocketConnector@0.0.0.0:8983: java.net.BindException: Address already in use
+java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:383)
+	at java.net.ServerSocket.bind(ServerSocket.java:328)
+	at java.net.ServerSocket.<init>(ServerSocket.java:194)
+	at java.net.ServerSocket.<init>(ServerSocket.java:150)
+	at org.eclipse.jetty.server.bio.SocketConnector.newServerSocket(SocketConnector.java:96)
+	at org.eclipse.jetty.server.bio.SocketConnector.open(SocketConnector.java:85)
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316)
+	at org.eclipse.jetty.server.bio.SocketConnector.doStart(SocketConnector.java:156)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:288)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.xml.XmlConfiguration$1.run(XmlConfiguration.java:1266)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.jetty.xml.XmlConfiguration.main(XmlConfiguration.java:1189)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.jetty.start.Main.invokeMain(Main.java:472)
+	at org.eclipse.jetty.start.Main.start(Main.java:620)
+	at org.eclipse.jetty.start.Main.main(Main.java:95)
+4891 [main] WARN  org.eclipse.jetty.util.component.AbstractLifeCycle  Ð FAILED org.eclipse.jetty.server.Server@73a01e8a: java.net.BindException: Address already in use
+java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:383)
+	at java.net.ServerSocket.bind(ServerSocket.java:328)
+	at java.net.ServerSocket.<init>(ServerSocket.java:194)
+	at java.net.ServerSocket.<init>(ServerSocket.java:150)
+	at org.eclipse.jetty.server.bio.SocketConnector.newServerSocket(SocketConnector.java:96)
+	at org.eclipse.jetty.server.bio.SocketConnector.open(SocketConnector.java:85)
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316)
+	at org.eclipse.jetty.server.bio.SocketConnector.doStart(SocketConnector.java:156)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:288)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.xml.XmlConfiguration$1.run(XmlConfiguration.java:1266)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.jetty.xml.XmlConfiguration.main(XmlConfiguration.java:1189)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.jetty.start.Main.invokeMain(Main.java:472)
+	at org.eclipse.jetty.start.Main.start(Main.java:620)
+	at org.eclipse.jetty.start.Main.main(Main.java:95)
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.jetty.start.Main.invokeMain(Main.java:472)
+	at org.eclipse.jetty.start.Main.start(Main.java:620)
+	at org.eclipse.jetty.start.Main.main(Main.java:95)
+Caused by: java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:383)
+	at java.net.ServerSocket.bind(ServerSocket.java:328)
+	at java.net.ServerSocket.<init>(ServerSocket.java:194)
+	at java.net.ServerSocket.<init>(ServerSocket.java:150)
+	at org.eclipse.jetty.server.bio.SocketConnector.newServerSocket(SocketConnector.java:96)
+	at org.eclipse.jetty.server.bio.SocketConnector.open(SocketConnector.java:85)
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316)
+	at org.eclipse.jetty.server.bio.SocketConnector.doStart(SocketConnector.java:156)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:288)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.xml.XmlConfiguration$1.run(XmlConfiguration.java:1266)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.jetty.xml.XmlConfiguration.main(XmlConfiguration.java:1189)
+	... 7 more
+
+Usage: java -jar start.jar [options] [properties] [configs]
+       java -jar start.jar --help  # for more information
+0    [main] INFO  org.eclipse.jetty.server.Server  Ð jetty-8.1.8.v20121106
+24   [main] INFO  org.eclipse.jetty.deploy.providers.ScanningAppProvider  Ð Deployment monitor /opt/local/share/java/solr-4.3.0/example/contexts at interval 0
+30   [main] INFO  org.eclipse.jetty.deploy.DeploymentManager  Ð Deployable added: /opt/local/share/java/solr-4.3.0/example/contexts/solr-jetty-context.xml
+890  [main] INFO  org.eclipse.jetty.webapp.StandardDescriptorProcessor  Ð NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+Null identity service, trying login service: null
+Finding identity service: null
+938  [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  Ð started o.e.j.w.WebAppContext{/solr,file:/opt/local/share/java/solr-4.3.0/example/solr-webapp/webapp/},/opt/local/share/java/solr-4.3.0/example/webapps/solr.war
+938  [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  Ð started o.e.j.w.WebAppContext{/solr,file:/opt/local/share/java/solr-4.3.0/example/solr-webapp/webapp/},/opt/local/share/java/solr-4.3.0/example/webapps/solr.war
+955  [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð SolrDispatchFilter.init()
+977  [main] INFO  org.apache.solr.core.SolrResourceLoader  Ð JNDI not configured for solr (NoInitialContextEx)
+978  [main] INFO  org.apache.solr.core.SolrResourceLoader  Ð solr home defaulted to 'solr/' (could not find system property or JNDI)
+989  [main] INFO  org.apache.solr.core.CoreContainer  Ð looking for solr config file: /opt/local/share/java/solr-4.3.0/example/solr/solr.xml
+992  [main] INFO  org.apache.solr.core.CoreContainer  Ð New CoreContainer 1428983720
+993  [main] INFO  org.apache.solr.core.CoreContainer  Ð Loading CoreContainer using Solr Home: 'solr/'
+993  [main] INFO  org.apache.solr.core.SolrResourceLoader  Ð new SolrResourceLoader for directory: 'solr/'
+1374 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting socketTimeout to: 0
+1374 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting urlScheme to: http://
+1375 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting connTimeout to: 0
+1377 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting maxConnectionsPerHost to: 20
+1378 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting corePoolSize to: 0
+1378 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting maximumPoolSize to: 2147483647
+1378 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting maxThreadIdleTime to: 5
+1379 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting sizeOfQueue to: -1
+1379 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting fairnessPolicy to: false
+1387 [main] INFO  org.apache.solr.client.solrj.impl.HttpClientUtil  Ð Creating new http client, config:maxConnectionsPerHost=20&maxConnections=10000&socketTimeout=0&connTimeout=0&retry=false
+1649 [main] INFO  org.apache.solr.core.CoreContainer  Ð Registering Log Listener
+1672 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CoreContainer  Ð Creating SolrCore 'collection1' using instanceDir: solr/collection1
+1673 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð new SolrResourceLoader for directory: 'solr/collection1/'
+1733 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrConfig  Ð Adding specified lib dirs to ClassLoader
+1736 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/apache-mime4j-core-0.7.2.jar' to classloader
+1736 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/apache-mime4j-dom-0.7.2.jar' to classloader
+1737 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/bcmail-jdk15-1.45.jar' to classloader
+1737 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/bcprov-jdk15-1.45.jar' to classloader
+1737 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/boilerpipe-1.1.0.jar' to classloader
+1737 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/commons-compress-1.4.1.jar' to classloader
+1738 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/dom4j-1.6.1.jar' to classloader
+1738 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/fontbox-1.7.1.jar' to classloader
+1738 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/icu4j-49.1.jar' to classloader
+1738 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/isoparser-1.0-RC-1.jar' to classloader
+1739 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/jdom-1.0.jar' to classloader
+1739 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/jempbox-1.7.1.jar' to classloader
+1740 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/juniversalchardet-1.0.3.jar' to classloader
+1740 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/metadata-extractor-2.6.2.jar' to classloader
+1740 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/netcdf-4.2-min.jar' to classloader
+1741 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/pdfbox-1.7.1.jar' to classloader
+1741 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-3.8.jar' to classloader
+1741 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-ooxml-3.8.jar' to classloader
+1741 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-ooxml-schemas-3.8.jar' to classloader
+1742 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-scratchpad-3.8.jar' to classloader
+1742 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/rome-0.9.jar' to classloader
+1742 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/tagsoup-1.2.1.jar' to classloader
+1743 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/tika-core-1.3.jar' to classloader
+1743 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/tika-parsers-1.3.jar' to classloader
+1743 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/vorbis-java-core-0.1.jar' to classloader
+1743 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/vorbis-java-tika-0.1.jar' to classloader
+1744 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/xercesImpl-2.9.1.jar' to classloader
+1744 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/xmlbeans-2.3.0.jar' to classloader
+1744 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/xz-1.0.jar' to classloader
+1745 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-cell-4.3.0.jar' to classloader
+1757 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/attributes-binder-1.0.1.jar' to classloader
+1757 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/carrot2-mini-3.6.2.jar' to classloader
+1758 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/hppc-0.4.1.jar' to classloader
+1758 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/jackson-core-asl-1.7.4.jar' to classloader
+1758 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/jackson-mapper-asl-1.7.4.jar' to classloader
+1759 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/mahout-collections-1.0.jar' to classloader
+1759 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/mahout-math-0.6.jar' to classloader
+1759 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/simple-xml-2.6.4.jar' to classloader
+1760 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-clustering-4.3.0.jar' to classloader
+1760 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/langid/lib/jsonic-1.2.7.jar' to classloader
+1761 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/langid/lib/langdetect-1.1-20120112.jar' to classloader
+1761 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-langid-4.3.0.jar' to classloader
+1762 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/commons-beanutils-1.7.0.jar' to classloader
+1762 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/commons-collections-3.2.1.jar' to classloader
+1762 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/velocity-1.7.jar' to classloader
+1763 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/velocity-tools-2.0.jar' to classloader
+1763 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-velocity-4.3.0.jar' to classloader
+1764 [coreLoadExecutor-3-thread-1] WARN  org.apache.solr.core.SolrResourceLoader  Ð Can't find (or read) directory to add to classloader: /non/existent/dir/yields/warning (resolved as: /non/existent/dir/yields/warning).
+1963 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrConfig  Ð Using Lucene MatchVersion: LUCENE_43
+2156 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.Config  Ð Loaded SolrConfig: solrconfig.xml
+2162 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð Reading Solr Schema from schema.xml
+2225 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð Schema name=example
+3210 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð unique key field: id
+3383 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.FileExchangeRateProvider  Ð Reloading exchange rates from file currency.xml
+3395 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.FileExchangeRateProvider  Ð Reloading exchange rates from file currency.xml
+3687 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð solr.NRTCachingDirectoryFactory
+3698 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Opening new SolrCore at solr/collection1/, dataDir=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data/
+3700 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.JmxMonitoredMap  Ð JMX monitoring is enabled. Adding Solr mbeans to JMX Server: com.sun.jmx.mbeanserver.JmxMBeanServer@16fbcb70
+3754 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Added SolrEventListener for newSearcher: org.apache.solr.core.QuerySenderListener{queries=[]}
+3755 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Added SolrEventListener for firstSearcher: org.apache.solr.core.QuerySenderListener{queries=[{q=static firstSearcher warming in solrconfig.xml}]}
+3762 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð solr.NRTCachingDirectoryFactory
+3779 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð return new directory for /opt/local/share/java/solr-4.3.0/example/solr/collection1/data
+3779 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð New index directory detected: old=null new=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index/
+3780 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð return new directory for /opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index
+3816 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð created json: solr.JSONResponseWriter
+3817 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð adding lazy queryResponseWriter: solr.VelocityResponseWriter
+3823 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð created velocity: solr.VelocityResponseWriter
+3830 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð created xslt: solr.XSLTResponseWriter
+3830 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.response.XSLTResponseWriter  Ð xsltCacheLifetimeSeconds=5
+3988 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /select: solr.SearchHandler
+3990 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /query: solr.SearchHandler
+3994 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /get: solr.RealTimeGetHandler
+3995 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /browse: solr.SearchHandler
+4000 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /update: solr.UpdateRequestHandler
+4004 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /update/json: solr.JsonUpdateRequestHandler
+4007 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /update/csv: solr.CSVRequestHandler
+4007 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.extraction.ExtractingRequestHandler
+4008 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /update/extract: solr.extraction.ExtractingRequestHandler
+4008 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+4009 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /analysis/field: solr.FieldAnalysisRequestHandler
+4009 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.DocumentAnalysisRequestHandler
+4009 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /analysis/document: solr.DocumentAnalysisRequestHandler
+4012 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /admin/: solr.admin.AdminHandlers
+4017 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /admin/ping: solr.PingRequestHandler
+4021 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /debug/dump: solr.DumpRequestHandler
+4033 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /replication: solr.ReplicationHandler
+4033 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.SearchHandler
+4033 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /spell: solr.SearchHandler
+4033 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.SearchHandler
+4034 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /tvrh: solr.SearchHandler
+4034 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.SearchHandler
+4034 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /terms: solr.SearchHandler
+4034 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.SearchHandler
+4034 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /elevate: solr.SearchHandler
+4051 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.loader.XMLLoader  Ð xsltCacheLifetimeSeconds=60
+4054 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.loader.XMLLoader  Ð xsltCacheLifetimeSeconds=60
+4055 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.loader.XMLLoader  Ð xsltCacheLifetimeSeconds=60
+4080 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.search.SolrIndexSearcher  Ð Opening Searcher@af4627 main
+4109 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð Hard AutoCommit: if uncommited for 15000ms; 
+4110 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð Soft AutoCommit: disabled
+4111 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.component.SpellCheckComponent  Ð Initializing spell checkers
+4127 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.spelling.DirectSolrSpellChecker  Ð init: {name=default,field=text,classname=solr.DirectSolrSpellChecker,distanceMeasure=internal,accuracy=0.5,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4,maxQueryFrequency=0.01}
+4139 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.component.SpellCheckComponent  Ð No queryConverter defined, using default converter
+4142 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.component.QueryElevationComponent  Ð Loading QueryElevation from: /opt/local/share/java/solr-4.3.0/example/solr/collection1/conf/elevate.xml
+4212 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.ReplicationHandler  Ð Commits will be reserved for  10000
+4213 [searcherExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  Ð QuerySenderListener sending requests to Searcher@af4627 main{StandardDirectoryReader(segments_4:1)}
+4259 [searcherExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=null path=null params={event=firstSearcher&q=static+firstSearcher+warming+in+solrconfig.xml&distrib=false} hits=0 status=0 QTime=43 
+4260 [searcherExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  Ð QuerySenderListener done.
+4260 [searcherExecutor-4-thread-1] INFO  org.apache.solr.handler.component.SpellCheckComponent  Ð Loading spell index for spellchecker: default
+4261 [searcherExecutor-4-thread-1] INFO  org.apache.solr.handler.component.SpellCheckComponent  Ð Loading spell index for spellchecker: wordbreak
+4265 [searcherExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Registered new searcher Searcher@af4627 main{StandardDirectoryReader(segments_4:1)}
+4270 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CoreContainer  Ð registering core: collection1
+4273 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð user.dir=/opt/local/share/java/solr-4.3.0/example
+4273 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð SolrDispatchFilter.init() done
+4320 [main] INFO  org.eclipse.jetty.server.AbstractConnector  Ð Started SocketConnector@0.0.0.0:8983
+5189 [qtp1685129668-17] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={indexInfo=false&_=1371129668518&wt=json} status=0 QTime=2 
+5268 [qtp1685129668-17] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/system params={_=1371129668564&wt=json} status=0 QTime=38 
+7223 [qtp1685129668-18] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={indexInfo=false&_=1371129670553&wt=json} status=0 QTime=1 
+7312 [qtp1685129668-18] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/system params={_=1371129670600&wt=json} status=0 QTime=45 
+8347 [qtp1685129668-18] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/logging params={_=1371129671675&since=0&wt=json} status=0 QTime=2 
+14835 [qtp1685129668-18] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={_=1371129678163&wt=json} status=0 QTime=3 
+14853 [qtp1685129668-18] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={_=1371129678185&wt=json} status=0 QTime=1 
+16649 [qtp1685129668-16] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/properties params={_=1371129679982&wt=json} status=0 QTime=0 
+17739 [qtp1685129668-18] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/threads params={_=1371129681060&wt=json} status=0 QTime=13 
+29649 [qtp1685129668-15] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={indexInfo=false&_=1371129692981&wt=json} status=0 QTime=1 
+29710 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/system params={_=1371129693013&wt=json} status=0 QTime=31 
+125880 [qtp1685129668-16] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={indexInfo=false&_=1371129789211&wt=json} status=0 QTime=1 
+125956 [qtp1685129668-16] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/system params={_=1371129789256&wt=json} status=0 QTime=34 
+132470 [qtp1685129668-16] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/logging params={_=1371129795803&since=0&wt=json} status=0 QTime=1 
+140483 [qtp1685129668-16] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={_=1371129803815&wt=json} status=0 QTime=2 
+140497 [qtp1685129668-16] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={_=1371129803830&wt=json} status=0 QTime=1 
+149085 [qtp1685129668-16] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/properties params={_=1371129812418&wt=json} status=0 QTime=0 
+150032 [qtp1685129668-16] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/threads params={_=1371129813359&wt=json} status=0 QTime=7 
+203470 [qtp1685129668-19] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/select/ params={fl=name,id&indent=on&q=video} hits=0 status=0 QTime=4 
+205489 [qtp1685129668-19] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/select/ params={fl=name,id&indent=on&q=video} hits=0 status=0 QTime=1 
+211280 [qtp1685129668-19] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-top.html&_=1371129874602&contentType=text/html;charset%3Dutf-8} status=0 QTime=8 
+211283 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-bottom.html&_=1371129874603&contentType=text/html;charset%3Dutf-8} status=0 QTime=1 
+211322 [qtp1685129668-17] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/replication params={command=details&_=1371129874649&wt=json} status=0 QTime=5 
+211339 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.html&_=1371129874653} status=0 QTime=0 
+211354 [qtp1685129668-18] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={action=status&_=1371129874655&wt=json} status=503 QTime=18 
+211388 [qtp1685129668-19] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={numTerms=0&_=1371129874645&show=index&wt=json} status=0 QTime=69 
+221088 [qtp1685129668-17] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file params={file=schema.xml&_=1371129884411&contentType=text/xml;charset%3Dutf-8} status=0 QTime=5 
+233428 [qtp1685129668-17] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file params={file=solrconfig.xml&_=1371129896735&contentType=text/xml;charset%3Dutf-8} status=0 QTime=1 
+240739 [qtp1685129668-19] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/replication params={command=details&_=1371129904072&wt=json} status=0 QTime=1 
+243877 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={_=1371129907204&show=schema&wt=json} status=0 QTime=6 
+245548 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={numTerms=0&_=1371129908881&wt=json} status=0 QTime=1 
+245560 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={_=1371129908890&show=schema&wt=json} status=0 QTime=4 
+249030 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={numTerms=0&_=1371129912363&wt=json} status=0 QTime=1 
+249046 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={_=1371129912377&show=schema&wt=json} status=0 QTime=4 
+252382 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={numTerms=0&_=1371129915715&wt=json} status=0 QTime=1 
+252394 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={_=1371129915724&show=schema&wt=json} status=0 QTime=5 
+562640 [qtp1685129668-13] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={indexInfo=false&_=1371130225972&wt=json} status=0 QTime=1 
+562708 [qtp1685129668-13] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/system params={_=1371130226007&wt=json} status=0 QTime=35 
+562744 [qtp1685129668-13] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={numTerms=0&_=1371130226074&wt=json} status=0 QTime=2 
+562757 [qtp1685129668-13] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={_=1371130226086&show=schema&wt=json} status=0 QTime=5 
+569425 [qtp1685129668-13] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-top.html&_=1371130232757&contentType=text/html;charset%3Dutf-8} status=0 QTime=0 
+569432 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-bottom.html&_=1371130232758&contentType=text/html;charset%3Dutf-8} status=0 QTime=1 
+569450 [qtp1685129668-19] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={numTerms=0&_=1371130232781&show=index&wt=json} status=0 QTime=0 
+569457 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/replication params={command=details&_=1371130232783&wt=json} status=0 QTime=1 
+569464 [qtp1685129668-13] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.html&_=1371130232789} status=0 QTime=0 
+569464 [qtp1685129668-21] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={action=status&_=1371130232791&wt=json} status=503 QTime=0 
+573743 [qtp1685129668-16] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð [admin] webapp=null path=/admin/cores params={indexInfo=false&_=1371130237075&wt=json} status=0 QTime=0 
+573812 [qtp1685129668-16] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/system params={_=1371130237107&wt=json} status=0 QTime=39 
+573850 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-bottom.html&_=1371130237181&contentType=text/html;charset%3Dutf-8} status=0 QTime=1 
+573852 [qtp1685129668-16] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-top.html&_=1371130237180&contentType=text/html;charset%3Dutf-8} status=0 QTime=0 
+573874 [qtp1685129668-17] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/luke params={numTerms=0&_=1371130237203&show=index&wt=json} status=0 QTime=2 
+573877 [qtp1685129668-16] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/replication params={command=details&_=1371130237206&wt=json} status=0 QTime=2 
+573887 [qtp1685129668-16] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={action=status&_=1371130237214&wt=json} status=503 QTime=1 
+573887 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.html&_=1371130237213} status=0 QTime=1 
+574634 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={ts=1371130237966&_=1371130237966&wt=json} hits=0 status=0 QTime=2 
+574635 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={ts=1371130237966&_=1371130237966&wt=json} status=0 QTime=3 
+577174 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={ts=1371130240507&_=1371130240507&wt=json} hits=0 status=0 QTime=1 
+577174 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={ts=1371130240507&_=1371130240507&wt=json} status=0 QTime=1 
+581049 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={ts=1371130244382&_=1371130244382&wt=json} hits=0 status=0 QTime=0 
+581049 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={ts=1371130244382&_=1371130244382&wt=json} status=0 QTime=1 
+582313 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={ts=1371130245646&_=1371130245646&wt=json} hits=0 status=0 QTime=1 
+582314 [qtp1685129668-15] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=/solr path=/admin/ping params={ts=1371130245646&_=1371130245646&wt=json} status=0 QTime=2 
+0    [main] INFO  org.eclipse.jetty.server.Server  Ð jetty-8.1.8.v20121106
+31   [main] INFO  org.eclipse.jetty.deploy.providers.ScanningAppProvider  Ð Deployment monitor /opt/local/share/java/solr-4.3.0/example/contexts at interval 0
+38   [main] INFO  org.eclipse.jetty.deploy.DeploymentManager  Ð Deployable added: /opt/local/share/java/solr-4.3.0/example/contexts/solr-jetty-context.xml
+915  [main] INFO  org.eclipse.jetty.webapp.StandardDescriptorProcessor  Ð NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+Null identity service, trying login service: null
+Finding identity service: null
+961  [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  Ð started o.e.j.w.WebAppContext{/solr,file:/opt/local/share/java/solr-4.3.0/example/solr-webapp/webapp/},/opt/local/share/java/solr-4.3.0/example/webapps/solr.war
+961  [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  Ð started o.e.j.w.WebAppContext{/solr,file:/opt/local/share/java/solr-4.3.0/example/solr-webapp/webapp/},/opt/local/share/java/solr-4.3.0/example/webapps/solr.war
+976  [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð SolrDispatchFilter.init()
+995  [main] INFO  org.apache.solr.core.SolrResourceLoader  Ð JNDI not configured for solr (NoInitialContextEx)
+996  [main] INFO  org.apache.solr.core.SolrResourceLoader  Ð solr home defaulted to 'solr/' (could not find system property or JNDI)
+1010 [main] INFO  org.apache.solr.core.CoreContainer  Ð looking for solr config file: /opt/local/share/java/solr-4.3.0/example/solr/solr.xml
+1012 [main] INFO  org.apache.solr.core.CoreContainer  Ð New CoreContainer 783328245
+1013 [main] INFO  org.apache.solr.core.CoreContainer  Ð Loading CoreContainer using Solr Home: 'solr/'
+1013 [main] INFO  org.apache.solr.core.SolrResourceLoader  Ð new SolrResourceLoader for directory: 'solr/'
+1474 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting socketTimeout to: 0
+1475 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting urlScheme to: http://
+1475 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting connTimeout to: 0
+1479 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting maxConnectionsPerHost to: 20
+1481 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting corePoolSize to: 0
+1482 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting maximumPoolSize to: 2147483647
+1484 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting maxThreadIdleTime to: 5
+1484 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting sizeOfQueue to: -1
+1485 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  Ð Setting fairnessPolicy to: false
+1507 [main] INFO  org.apache.solr.client.solrj.impl.HttpClientUtil  Ð Creating new http client, config:maxConnectionsPerHost=20&maxConnections=10000&socketTimeout=0&connTimeout=0&retry=false
+1778 [main] INFO  org.apache.solr.core.CoreContainer  Ð Registering Log Listener
+1800 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CoreContainer  Ð Creating SolrCore 'collection1' using instanceDir: solr/collection1
+1800 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð new SolrResourceLoader for directory: 'solr/collection1/'
+1868 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrConfig  Ð Adding specified lib dirs to ClassLoader
+1870 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/apache-mime4j-core-0.7.2.jar' to classloader
+1870 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/apache-mime4j-dom-0.7.2.jar' to classloader
+1870 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/bcmail-jdk15-1.45.jar' to classloader
+1871 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/bcprov-jdk15-1.45.jar' to classloader
+1871 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/boilerpipe-1.1.0.jar' to classloader
+1871 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/commons-compress-1.4.1.jar' to classloader
+1871 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/dom4j-1.6.1.jar' to classloader
+1872 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/fontbox-1.7.1.jar' to classloader
+1872 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/icu4j-49.1.jar' to classloader
+1872 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/isoparser-1.0-RC-1.jar' to classloader
+1872 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/jdom-1.0.jar' to classloader
+1873 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/jempbox-1.7.1.jar' to classloader
+1873 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/juniversalchardet-1.0.3.jar' to classloader
+1873 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/metadata-extractor-2.6.2.jar' to classloader
+1873 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/netcdf-4.2-min.jar' to classloader
+1874 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/pdfbox-1.7.1.jar' to classloader
+1874 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-3.8.jar' to classloader
+1874 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-ooxml-3.8.jar' to classloader
+1874 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-ooxml-schemas-3.8.jar' to classloader
+1875 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/poi-scratchpad-3.8.jar' to classloader
+1875 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/rome-0.9.jar' to classloader
+1876 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/tagsoup-1.2.1.jar' to classloader
+1876 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/tika-core-1.3.jar' to classloader
+1876 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/tika-parsers-1.3.jar' to classloader
+1876 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/vorbis-java-core-0.1.jar' to classloader
+1877 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/vorbis-java-tika-0.1.jar' to classloader
+1877 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/xercesImpl-2.9.1.jar' to classloader
+1877 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/xmlbeans-2.3.0.jar' to classloader
+1878 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/extraction/lib/xz-1.0.jar' to classloader
+1879 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-cell-4.3.0.jar' to classloader
+1879 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/attributes-binder-1.0.1.jar' to classloader
+1880 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/carrot2-mini-3.6.2.jar' to classloader
+1880 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/hppc-0.4.1.jar' to classloader
+1880 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/jackson-core-asl-1.7.4.jar' to classloader
+1881 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/jackson-mapper-asl-1.7.4.jar' to classloader
+1881 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/mahout-collections-1.0.jar' to classloader
+1882 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/mahout-math-0.6.jar' to classloader
+1882 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/clustering/lib/simple-xml-2.6.4.jar' to classloader
+1883 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-clustering-4.3.0.jar' to classloader
+1883 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/langid/lib/jsonic-1.2.7.jar' to classloader
+1884 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/langid/lib/langdetect-1.1-20120112.jar' to classloader
+1885 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-langid-4.3.0.jar' to classloader
+1886 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/commons-beanutils-1.7.0.jar' to classloader
+1886 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/commons-collections-3.2.1.jar' to classloader
+1886 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/velocity-1.7.jar' to classloader
+1887 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/contrib/velocity/lib/velocity-tools-2.0.jar' to classloader
+1887 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  Ð Adding 'file:/opt/local/share/java/solr-4.3.0/dist/solr-velocity-4.3.0.jar' to classloader
+1888 [coreLoadExecutor-3-thread-1] WARN  org.apache.solr.core.SolrResourceLoader  Ð Can't find (or read) directory to add to classloader: /non/existent/dir/yields/warning (resolved as: /non/existent/dir/yields/warning).
+2064 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrConfig  Ð Using Lucene MatchVersion: LUCENE_43
+2267 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.Config  Ð Loaded SolrConfig: solrconfig.xml
+2273 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð Reading Solr Schema from schema.xml
+2326 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð Schema name=drupal-2.0-beta4
+2578 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð default search field in schema is body
+2580 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð query parser default operator is AND
+2582 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.schema.IndexSchema  Ð unique key field: id
+2784 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð solr.NRTCachingDirectoryFactory
+2797 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Opening new SolrCore at solr/collection1/, dataDir=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data/
+2799 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.JmxMonitoredMap  Ð JMX monitoring is enabled. Adding Solr mbeans to JMX Server: com.sun.jmx.mbeanserver.JmxMBeanServer@f7f0d94
+2837 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Added SolrEventListener for newSearcher: org.apache.solr.core.QuerySenderListener{queries=[]}
+2838 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Added SolrEventListener for firstSearcher: org.apache.solr.core.QuerySenderListener{queries=[{q=static firstSearcher warming in solrconfig.xml}]}
+2844 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð solr.NRTCachingDirectoryFactory
+2863 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð return new directory for /opt/local/share/java/solr-4.3.0/example/solr/collection1/data
+2864 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð New index directory detected: old=null new=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index/
+2865 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð return new directory for /opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index
+2878 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð created json: solr.JSONResponseWriter
+2879 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð adding lazy queryResponseWriter: solr.VelocityResponseWriter
+2880 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð created velocity: solr.VelocityResponseWriter
+2886 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð created xslt: solr.XSLTResponseWriter
+2886 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.response.XSLTResponseWriter  Ð xsltCacheLifetimeSeconds=5
+3061 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /select: solr.SearchHandler
+3063 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /query: solr.SearchHandler
+3069 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /get: solr.RealTimeGetHandler
+3071 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /browse: solr.SearchHandler
+3077 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /update: solr.UpdateRequestHandler
+3080 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /update/json: solr.JsonUpdateRequestHandler
+3085 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /update/csv: solr.CSVRequestHandler
+3085 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.extraction.ExtractingRequestHandler
+3087 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /update/extract: solr.extraction.ExtractingRequestHandler
+3087 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+3088 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /analysis/field: solr.FieldAnalysisRequestHandler
+3088 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.DocumentAnalysisRequestHandler
+3088 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /analysis/document: solr.DocumentAnalysisRequestHandler
+3092 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /admin/: solr.admin.AdminHandlers
+3097 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /admin/ping: solr.PingRequestHandler
+3101 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /debug/dump: solr.DumpRequestHandler
+3119 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /replication: solr.ReplicationHandler
+3119 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.SearchHandler
+3120 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /spell: solr.SearchHandler
+3120 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.SearchHandler
+3120 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /tvrh: solr.SearchHandler
+3120 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.SearchHandler
+3121 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /terms: solr.SearchHandler
+3121 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð adding lazy requestHandler: solr.SearchHandler
+3122 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.RequestHandlers  Ð created /elevate: solr.SearchHandler
+3155 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.loader.XMLLoader  Ð xsltCacheLifetimeSeconds=60
+3159 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.loader.XMLLoader  Ð xsltCacheLifetimeSeconds=60
+3160 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.handler.loader.XMLLoader  Ð xsltCacheLifetimeSeconds=60
+3203 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.search.SolrIndexSearcher  Ð Opening Searcher@4bb4df9c main
+3227 [coreLoadExecutor-3-thread-1] ERROR org.apache.solr.update.UpdateLog  Ð Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+org.apache.solr.common.SolrException: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.VersionInfo.getAndCheckVersionField(VersionInfo.java:62)
+	at org.apache.solr.update.VersionInfo.<init>(VersionInfo.java:83)
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:245)
+	at org.apache.solr.update.UpdateHandler.initLog(UpdateHandler.java:82)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:137)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:123)
+	at org.apache.solr.update.DirectUpdateHandler2.<init>(DirectUpdateHandler2.java:95)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.apache.solr.core.SolrCore.createInstance(SolrCore.java:525)
+	at org.apache.solr.core.SolrCore.createUpdateHandler(SolrCore.java:596)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:805)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:618)
+	at org.apache.solr.core.CoreContainer.createFromLocal(CoreContainer.java:949)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:984)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:597)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:592)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:680)
+3231 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1]  CLOSING SolrCore org.apache.solr.core.SolrCore@665c1eae
+3233 [searcherExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  Ð QuerySenderListener sending requests to Searcher@4bb4df9c main{StandardDirectoryReader(segments_4:1)}
+3253 [searcherExecutor-4-thread-1] ERROR org.apache.solr.core.SolrCore  Ð java.lang.NullPointerException
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:181)
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:1816)
+	at org.apache.solr.core.QuerySenderListener.newSearcher(QuerySenderListener.java:64)
+	at org.apache.solr.core.SolrCore$5.call(SolrCore.java:1605)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:680)
+
+3255 [searcherExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] webapp=null path=null params={event=firstSearcher&q=static+firstSearcher+warming+in+solrconfig.xml&distrib=false} status=500 QTime=18 
+3256 [searcherExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  Ð QuerySenderListener done.
+3257 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.update.SolrCoreState  Ð Closing SolrCoreState
+3257 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.update.DefaultSolrCoreState  Ð SolrCoreState ref count has reached 0 - closing IndexWriter
+3262 [searcherExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Registered new searcher Searcher@4bb4df9c main{StandardDirectoryReader(segments_4:1)}
+3263 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.SolrCore  Ð [collection1] Closing main searcher on request.
+3266 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð Closing NRTCachingDirectoryFactory - 2 directories currently being tracked
+3268 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð looking to close /opt/local/share/java/solr-4.3.0/example/solr/collection1/data [CachedDir<<refCount=0;path=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data;done=false>>]
+3269 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð Closing directory: /opt/local/share/java/solr-4.3.0/example/solr/collection1/data
+3269 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð looking to close /opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index [CachedDir<<refCount=0;path=/opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index;done=false>>]
+3270 [coreLoadExecutor-3-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  Ð Closing directory: /opt/local/share/java/solr-4.3.0/example/solr/collection1/data/index
+3271 [coreLoadExecutor-3-thread-1] ERROR org.apache.solr.core.CoreContainer  Ð Unable to create core: collection1
+org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:821)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:618)
+	at org.apache.solr.core.CoreContainer.createFromLocal(CoreContainer.java:949)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:984)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:597)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:592)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:680)
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:248)
+	at org.apache.solr.update.UpdateHandler.initLog(UpdateHandler.java:82)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:137)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:123)
+	at org.apache.solr.update.DirectUpdateHandler2.<init>(DirectUpdateHandler2.java:95)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.apache.solr.core.SolrCore.createInstance(SolrCore.java:525)
+	at org.apache.solr.core.SolrCore.createUpdateHandler(SolrCore.java:596)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:805)
+	... 13 more
+Caused by: org.apache.solr.common.SolrException: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.VersionInfo.getAndCheckVersionField(VersionInfo.java:62)
+	at org.apache.solr.update.VersionInfo.<init>(VersionInfo.java:83)
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:245)
+	... 24 more
+3273 [coreLoadExecutor-3-thread-1] ERROR org.apache.solr.core.CoreContainer  Ð null:org.apache.solr.common.SolrException: Unable to create core: collection1
+	at org.apache.solr.core.CoreContainer.recordAndThrow(CoreContainer.java:1450)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:993)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:597)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:592)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:680)
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:821)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:618)
+	at org.apache.solr.core.CoreContainer.createFromLocal(CoreContainer.java:949)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:984)
+	... 10 more
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:248)
+	at org.apache.solr.update.UpdateHandler.initLog(UpdateHandler.java:82)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:137)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:123)
+	at org.apache.solr.update.DirectUpdateHandler2.<init>(DirectUpdateHandler2.java:95)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.apache.solr.core.SolrCore.createInstance(SolrCore.java:525)
+	at org.apache.solr.core.SolrCore.createUpdateHandler(SolrCore.java:596)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:805)
+	... 13 more
+Caused by: org.apache.solr.common.SolrException: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.VersionInfo.getAndCheckVersionField(VersionInfo.java:62)
+	at org.apache.solr.update.VersionInfo.<init>(VersionInfo.java:83)
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:245)
+	... 24 more
+
+3275 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð user.dir=/opt/local/share/java/solr-4.3.0/example
+3276 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  Ð SolrDispatchFilter.init() done
+3336 [main] INFO  org.eclipse.jetty.server.AbstractConnector  Ð Started SocketConnector@0.0.0.0:8983
+9202 [qtp869724450-21] ERROR org.apache.solr.servlet.SolrDispatchFilter  Ð null:org.apache.solr.common.SolrException: SolrCore 'collection1' is not available due to init failure: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.CoreContainer.getCore(CoreContainer.java:1212)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:248)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:155)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)
+	at org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:680)
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:821)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:618)
+	at org.apache.solr.core.CoreContainer.createFromLocal(CoreContainer.java:949)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:984)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:597)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:592)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	... 1 more
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:248)
+	at org.apache.solr.update.UpdateHandler.initLog(UpdateHandler.java:82)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:137)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:123)
+	at org.apache.solr.update.DirectUpdateHandler2.<init>(DirectUpdateHandler2.java:95)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.apache.solr.core.SolrCore.createInstance(SolrCore.java:525)
+	at org.apache.solr.core.SolrCore.createUpdateHandler(SolrCore.java:596)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:805)
+	... 13 more
+Caused by: org.apache.solr.common.SolrException: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.VersionInfo.getAndCheckVersionField(VersionInfo.java:62)
+	at org.apache.solr.update.VersionInfo.<init>(VersionInfo.java:83)
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:245)
+	... 24 more
+
+10824 [qtp869724450-21] ERROR org.apache.solr.servlet.SolrDispatchFilter  Ð null:org.apache.solr.common.SolrException: SolrCore 'collection1' is not available due to init failure: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.CoreContainer.getCore(CoreContainer.java:1212)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:248)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:155)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)
+	at org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:680)
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:821)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:618)
+	at org.apache.solr.core.CoreContainer.createFromLocal(CoreContainer.java:949)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:984)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:597)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:592)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	... 1 more
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:248)
+	at org.apache.solr.update.UpdateHandler.initLog(UpdateHandler.java:82)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:137)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:123)
+	at org.apache.solr.update.DirectUpdateHandler2.<init>(DirectUpdateHandler2.java:95)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.apache.solr.core.SolrCore.createInstance(SolrCore.java:525)
+	at org.apache.solr.core.SolrCore.createUpdateHandler(SolrCore.java:596)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:805)
+	... 13 more
+Caused by: org.apache.solr.common.SolrException: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.VersionInfo.getAndCheckVersionField(VersionInfo.java:62)
+	at org.apache.solr.update.VersionInfo.<init>(VersionInfo.java:83)
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:245)
+	... 24 more
+
+237930 [qtp869724450-12] ERROR org.apache.solr.servlet.SolrDispatchFilter  Ð null:org.apache.solr.common.SolrException: SolrCore 'collection1' is not available due to init failure: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.CoreContainer.getCore(CoreContainer.java:1212)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:248)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:155)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)
+	at org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:680)
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:821)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:618)
+	at org.apache.solr.core.CoreContainer.createFromLocal(CoreContainer.java:949)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:984)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:597)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:592)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	... 1 more
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:248)
+	at org.apache.solr.update.UpdateHandler.initLog(UpdateHandler.java:82)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:137)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:123)
+	at org.apache.solr.update.DirectUpdateHandler2.<init>(DirectUpdateHandler2.java:95)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.apache.solr.core.SolrCore.createInstance(SolrCore.java:525)
+	at org.apache.solr.core.SolrCore.createUpdateHandler(SolrCore.java:596)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:805)
+	... 13 more
+Caused by: org.apache.solr.common.SolrException: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.VersionInfo.getAndCheckVersionField(VersionInfo.java:62)
+	at org.apache.solr.update.VersionInfo.<init>(VersionInfo.java:83)
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:245)
+	... 24 more
+
+238657 [qtp869724450-12] ERROR org.apache.solr.servlet.SolrDispatchFilter  Ð null:org.apache.solr.common.SolrException: SolrCore 'collection1' is not available due to init failure: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.CoreContainer.getCore(CoreContainer.java:1212)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:248)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:155)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)
+	at org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:680)
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:821)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:618)
+	at org.apache.solr.core.CoreContainer.createFromLocal(CoreContainer.java:949)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:984)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:597)
+	at org.apache.solr.core.CoreContainer$2.call(CoreContainer.java:592)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	... 1 more
+Caused by: org.apache.solr.common.SolrException: Unable to use updateLog: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:248)
+	at org.apache.solr.update.UpdateHandler.initLog(UpdateHandler.java:82)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:137)
+	at org.apache.solr.update.UpdateHandler.<init>(UpdateHandler.java:123)
+	at org.apache.solr.update.DirectUpdateHandler2.<init>(DirectUpdateHandler2.java:95)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.apache.solr.core.SolrCore.createInstance(SolrCore.java:525)
+	at org.apache.solr.core.SolrCore.createUpdateHandler(SolrCore.java:596)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:805)
+	... 13 more
+Caused by: org.apache.solr.common.SolrException: _version_field must exist in schema, using indexed="true" stored="true" and multiValued="false" (_version_ is not indexed
+	at org.apache.solr.update.VersionInfo.getAndCheckVersionField(VersionInfo.java:62)
+	at org.apache.solr.update.VersionInfo.<init>(VersionInfo.java:83)
+	at org.apache.solr.update.UpdateLog.init(UpdateLog.java:245)
+	... 24 more
+

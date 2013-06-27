@@ -1,0 +1,17 @@
+#set($docId = $doc.getFieldValue('_id'))
+
+<div class="result-document">
+#if($doc.getFieldValue('name'))
+  #parse("product-doc.vm")
+#elseif($doc.getFieldValue('compName_s'))
+  #parse("join-doc.vm")
+#elseif($doc.getFieldValue('type')=='book')
+  #parse("doc-book.vm")
+#elseif($doc.getFieldValue('type')=='film')
+  #parse("doc-film.vm")
+#elseif($doc.getFieldValue('type')=='celebrity')
+  #parse("doc-celebrity.vm")
+#else
+  #parse("richtext-doc.vm")
+#end
+</div>

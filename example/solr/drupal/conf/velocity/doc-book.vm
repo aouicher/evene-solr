@@ -1,0 +1,245 @@
+## Mimetype to extension map for detecting file type and show icon
+## List of types match the icons in /solr/img/filetypes
+#set($extMap = {"application/x-7z-compressed": "7z",
+                 "application/postscript": "ai",
+                 "application/pgp-signature": "asc",
+                 "application/octet-stream": "bin",
+                 "application/x-bzip2": "bz2",
+                 "text/x-c": "c",
+                 "application/vnd.ms-htmlhelp": "chm",
+                 "application/java-vm": "class",
+                 "text/css": "css",
+                 "text/csv": "csv",
+                 "application/x-debian-package": "deb",
+                 "application/msword": "doc",
+                 "message/rfc822": "eml",
+                 "image/gif": "gif",
+                 "application/winhlp": "hlp",
+                 "text/html": "html",
+                 "application/java-archive": "jar",
+                 "text/x-java-source": "java",
+                 "image/jpeg": "jpeg",
+                 "application/javascript": "js",
+                 "application/vnd.oasis.opendocument.chart": "odc",
+                 "application/vnd.oasis.opendocument.formula": "odf",
+                 "application/vnd.oasis.opendocument.graphics": "odg",
+                 "application/vnd.oasis.opendocument.image": "odi",
+                 "application/vnd.oasis.opendocument.presentation": "odp",
+                 "application/vnd.oasis.opendocument.spreadsheet": "ods",
+                 "application/vnd.oasis.opendocument.text": "odt",
+                 "application/pdf": "pdf",
+                 "application/pgp-encrypted": "pgp",
+                 "image/png": "png",
+                 "application/vnd.ms-powerpoint": "ppt",
+                 "audio/x-pn-realaudio": "ram",
+                 "application/x-rar-compressed": "rar",
+                 "application/vnd.rn-realmedia": "rm",
+                 "application/rtf": "rtf",
+                 "application/x-shockwave-flash": "swf",
+                 "application/vnd.sun.xml.calc": "sxc",
+                 "application/vnd.sun.xml.draw": "sxd",
+                 "application/vnd.sun.xml.impress": "sxi",
+                 "application/vnd.sun.xml.writer": "sxw",
+                 "application/x-tar": "tar",
+                 "application/x-tex": "tex",
+                 "text/plain": "txt",
+                 "text/x-vcard": "vcf",
+                 "application/vnd.visio": "vsd",
+                 "audio/x-wav": "wav",
+                 "audio/x-ms-wma": "wma",
+                 "video/x-ms-wmv": "wmv",
+                 "application/vnd.ms-excel": "xls",
+                 "application/xml": "xml",
+                 "application/x-xpinstall": "xpi",
+                 "application/zip": "zip"})
+
+
+#if($doc.getFieldValue('title'))
+  #set($title = $esc.html($doc.getFirstValue('title')))
+#else
+  #set($title = "["+$doc.getFieldValue('id')+"]")
+#end
+
+#if($doc.getFieldValue('path'))
+  #set($url = $doc.getFieldValue('path'))
+#elseif($doc.getFieldValue('resourcename'))
+  #set($url = "file:///$doc.getFieldValue('resourcename')")
+#else
+  #set($url = "$doc.getFieldValue('id')")
+#end
+
+#if($doc.getFieldValue('path'))
+  #set($path = $doc.getFieldValue('path'))
+#else
+  #set($path = "node/" + $doc.getFieldValue('nid'))
+#end
+#set($supportedtypes = "7z;ai;aiff;asc;audio;bin;bz2;c;cfc;cfm;chm;class;conf;cpp;cs;css;csv;deb;divx;doc;dot;eml;enc;file;gif;gz;hlp;htm;html;image;iso;jar;java;jpeg;jpg;js;lua;m;mm;mov;mp3;mpg;odc;odf;odg;odi;odp;ods;odt;ogg;pdf;pgp;php;pl;png;ppt;ps;py;ram;rar;rb;rm;rpm;rtf;sig;sql;swf;sxc;sxd;sxi;sxw;tar;tex;tgz;txt;vcf;video;vsd;wav;wma;wmv;xls;xml;xpi;xvid;zip")
+#set($ct = $list.get($doc.getFirstValue('content_type').split(";"),0))
+#set($filename = $doc.getFieldValue('resourcename'))
+
+#set($filetype = false)
+#set($filetype = $extMap.get($ct))
+##TODO: falling back to file extension is convenient, except when you don't have an icon for that extension
+##      example "application/vnd.openxmlformats-officedocument.wordprocessingml.document" document
+##        with a .docx extension.  It'd be nice to fall back to an "unknown" or the existing "file" type
+##      We sort of do this below, but only if the filename has no extension (anything after the last dot).
+#if(!$filetype)#set($filetype = $filename.substring($filename.lastIndexOf(".")).substring(1))#end
+##if(!$filetype)#set($filetype = "file")#end
+##if(!$supportedtypes.contains($filetype))#set($filetype = "file")#end
+
+#if($doc.getFieldValue('picture'))
+#if($doc.getFieldValue('picture') == 'files/user_pictures/picture-1.png')
+#set($pictureLink = "#domain_site_static/sites/all/themes/evene/images/dummy/dummy-90-90.jpg")
+#else
+#set($pictureLink = "#domain_site_static/img/livres/g/"+$doc.getFieldValue('picture'))
+#end
+#end
+
+
+<!--
+
+<img src="#domain_site_static/img/livres/g/$doc.getFieldValue('picture')" align="center">
+
+<h2><a href="$url_site/${path}" target="_blank"><b>$title</b></a></h2><span class="mlt">   #if($params.getBool('mlt', false) == false)<a href="#lensNoQ&q=id:%22$docId%22&mlt=true">More Like This</a>#end</span></div>
+#if($doc.getFieldValue('field_subtitle_final'))
+<h3>$doc.getFieldValue('field_subtitle_final')</h3>
+#end
+<div>Id: #field('nid')</div>
+<div>Description: #field('field_description_final')</div>
+<div>
+#if($doc.getFieldValue('resourcename'))Resource name: $filename
+#elseif($url)URL: $url
+#end
+#if($ct) ($ct)#end
+
+
+</div>
+#if($doc.getFieldValue('author'))<div>Author: #field('author')</div>#end
+#if($doc.getFieldValue('last_modified'))<div>last-modified: #field('last_modified')</div>#end
+<div class="result-body">#field('content')</div>
+<div class="mlt">
+  #set($mlt = $mltResults.get($docId))
+  #set($mltOn = $params.getBool('mlt'))
+  #if($mltOn == true)<div class="field-name">Similar Items</div>#end
+  #if ($mltOn && $mlt && $mlt.size() > 0)
+  <ul>
+    #foreach($mltHit in $mlt)
+      #set($mltId = $mltHit.getFieldValue('id'))
+      <li><div><a href="#url_for_home?q=id:$mltId">$mltId</a></div><div><span class="field-name">Title:</span> $mltHit.getFieldValue('title')</div>
+        <div><span class="field-name">Author:</span> $mltHit.getFieldValue('author') <span class="field-name">Description:</span> $mltHit.getFieldValue('description')</div>
+
+      </li>
+    #end
+  </ul>
+  #elseif($mltOn && $mlt.size() == 0)
+    <div>No Similar Items Found</div>
+  #end
+</div>
+-->
+
+#parse('debug.vm')
+    <div class="block-aller-plus">
+                        <div class="category">livre</div>
+
+    <div class="node node-98049">
+      <div class="block-cdc">
+        <div class="img">
+          <span class="unteflutche" onclick="EveneSite.unteflutche(&quot;#Z:Z3+n%L=xyoa=?o8=?Fs7.=y0:8sEM0-zsyM/0-zsy/&quot;); return false;"><img src="$pictureLink" class="evene_images imagecache evene_images-evene_image-livre-grande imagecache-evene_image-livre-grande evene_images- imagecache- evene_images-evene_image-livre-grande_default imagecache-evene_image-livre-grande_default " width="108" height="162" alt="Cat-walk"></span>    </div>
+        <div class="txt">
+                  <h4><a href="#domain_site/livres/categorie/litterature-roman-francais.php">#field('taxonomy_names')</a></h4>
+
+                  <h3><a href="#domain_site/${path}">#field('title')</a></h3>
+                  #if($doc.getFieldValue('field_subtitle_final'))
+                  <div class="description-info">#field('field_subtitle_final')</div>
+                  #end
+                  <h4></h4>
+                  <h4 class="de">
+              de <span class="underline"><a href="#field('book_author_content_celebrity_path')" itemprop="author">#field('book_author_content_celebrity')</a></span>                      <a href="/tout/michel-quint" class="filter-text-plus">[+]</a>
+                      </h4>
+
+                  <span class="author">
+                          #if($doc.getFieldValue('ss_book_label'))
+                          Editeur : <b>$doc.getFieldValue('ss_book_label')</b>
+                              <a href="/tout/joelle-losfeld" class="filter-text-plus">[+]</a>
+
+                |
+                #end
+                          Parution : <b>$date.format("dd MMM YYYY",$doc.getFieldValue('ds_book_publication_timestamp'),$date.getLocale(),$date.getTimeZone().getTimeZone("UTC"))</b>
+
+            </span>
+                               <p>#field('body') </p>
+
+                  <span class="link">Plus sur <span class="unteflutche" onclick="EveneSite.unteflutche(&quot;#Z:Z3+n%L=xyoa=?o8=?Fs7.=y0:8sEM0-zsyM/0-zsy/&quot;); return false;">$doc.getFieldValue('title')</span></span>
+
+
+          <span class="this-commandez"><span class="unteflutche main" target="_blank" title="$doc.getFieldValue('title')" onclick="EveneSite.unteflutchenew(&quot;#nuAkulUA_w_&amp;_ATg(Fsrs-fNxyoa=0xoU=?Fs7h=y0:8svMJ++I+GnoMEY838oFq30-zsyMM2Z??:/&quot;); return false;">Commandez avec <span class="event">5% de remise</span> sur Fnac.com - livraison gratuite</span></span>
+                      <div class="behind" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+            <meta itemprop="ratingValue" content="0">
+            <meta itemprop="worstRating" content="0">
+            <meta itemprop="bestRating" content="5">
+            <meta itemprop="ratingCount" content="0">
+            <meta itemprop="reviewCount" content="">
+          </div>
+          <div class="evene-fav">
+            <div class="tooltip-info">
+
+          <div class="bottom-info">
+            <p><b>Vous aussi écrivez votre commentaire ou votre critique</b></p>
+            <span class="unteflutche link" onclick="EveneSite.unteflutche(&quot;#E-Yq=?F0EEY8B/07.s?s-8NZ:Z3+n%L=xyoa=?o8=?Fs7.=y0:8sEM0-zsyM/0-zsy/&quot;); return false;">Réagissez</span>        <div class="enddiv"></div>
+          </div>
+        </div>
+                      #if($doc.getFieldValue('comment_count') && $doc.getFieldValue('comment_count') != 0)
+                      <div class="avis avis-small tooltip tooltip-processeed first-over">
+                          <span>$doc.getFieldValue('comment_count')</span>
+                        </div>
+                      #else
+                      <div class="avis avis-small avis-empty tooltip tooltip-processeed first-over">
+                          <span>&nbsp;</span>
+                        </div>
+                      #end
+
+        <ul class="ui-content">
+            <li class="last">
+                Membres (#if($doc.getFieldValue('vote_count'))$doc.getFieldValue('vote_count')#end)
+                <span class="static-stars harts-orange static-stars-#if($doc.getFieldValue('vote_avg'))$doc.getFieldValue('vote_avg')#end">
+                  <a href="#domain_site/livres/livre/michel-quint-cat-walk-8913.php?critiques"><span class="stars harts-orange">&nbsp;</span></a>
+                </span>
+            </li>
+        </ul>
+
+              </div>
+        </div>
+        <div class="enddiv"></div>
+      </div>
+        <div class="block-votes
+                ">
+                            <ul class="ui-content flag-wrapper favorite-block-98049 long">
+          <li class="first last">
+            <div class="tooltip-info">
+              <h4>«&nbsp;Cat-walk&nbsp;»</h4>
+              <p>Soyez le premier à ajouter ce livre à vos favoris</p>
+              <a class="evene-fancybox-popup link tooltip-flag fancybox-false" href="/user/login" rel="nofollow">
+                Ajouter à mes favoris          </a>
+              <div class="enddiv"></div><div class="bottom-info">
+                <span class="info-text">
+                  Votre espace personnel sur Evene.fr vous permet de découvrir du contenu culturel qui
+                   vous correspond. L'espace personnel, c'est un moteur de recommandations selon vos goûts.              <b><a href="/" class="link evene-trigger-login profile-redirect">Accédez à votre espace personnel</a></b>
+                </span>
+              </div>
+            </div>
+            <span class="evene-fav tooltip evene-fav-off tooltip-processeed">
+              <a class="evene-fancybox-popup fancybox-false" href="/user/login" rel="nofollow">
+                              Ajouter à mes favoris                      </a>
+              <span class="num">0</span>
+            </span>
+          </li>
+        </ul>
+                          <ul class="ui-content right">
+          	<li class="first"><div id="___plusone_1" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I1_1371828196143" name="I1_1371828196143" src="https://apis.google.com/_/+1/fastbutton?bsv&amp;size=medium&amp;hl=fr&amp;origin=http%3A%2F%2Fwww.evene.fr&amp;url=http%3A%2F%2Fwww.evene.fr%2Flivres%2Flivre%2Fmichel-quint-cat-walk-8913.php&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.fr.x6F682bHsZo.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAItRSTNxgai5KjqjziV5SkgvR2ktNIovbA#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled&amp;id=I1_1371828196143&amp;parent=http%3A%2F%2Fwww.evene.fr&amp;rpctoken=23298503" allowtransparency="true" data-gapiattached="true" title="+1"></iframe></div></li>
+          	<li><div class="fb-like fb_edge_widget_with_comment fb_iframe_widget" data-href="#domain_site/livres/livre/michel-quint-cat-walk-8913.php" data-send="false" data-layout="button_count" data-width="104" data-show-faces="false" data-font="verdana" fb-xfbml-state="rendered"><span style="height: 20px; width: 86px;"><iframe id="f2a1869b7" name="f2a8d5cd6c" scrolling="no" title="Like this content on Facebook." class="fb_ltr" src="http://www.facebook.com/plugins/like.php?api_key=175108159196731&amp;locale=fr_FR&amp;sdk=joey&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D25%23cb%3Df20e55f91%26origin%3Dhttp%253A%252F%252Fwww.evene.fr%252Ff3b255ec84%26domain%3Dwww.evene.fr%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fwww.evene.fr%2Flivres%2Flivre%2Fmichel-quint-cat-walk-8913.php&amp;node_type=link&amp;width=104&amp;font=verdana&amp;layout=button_count&amp;colorscheme=light&amp;show_faces=false&amp;send=false&amp;extended_social_context=false" style="border: none; overflow: hidden; height: 20px; width: 86px;"></iframe></span></div></li>
+          	<li class="last"><iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.1371247185.html#_=1371828196218&amp;count=horizontal&amp;counturl=http%3A%2F%2Fwww.evene.fr%2Flivres%2Flivre%2Fmichel-quint-cat-walk-8913.php&amp;id=twitter-widget-1&amp;lang=fr&amp;original_referer=http%3A%2F%2Fwww.evene.fr%2Ftout%2Fcat-walk&amp;size=m&amp;text=Cat-walk&amp;url=http%3A%2F%2Fwww.evene.fr%2Flivres%2Flivre%2Fmichel-quint-cat-walk-8913.php" class="twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 117px; height: 20px;"></iframe></li>
+          </ul>
+                <div class="enddiv"></div>
+      </div>
+    </div>
+                    </div>
