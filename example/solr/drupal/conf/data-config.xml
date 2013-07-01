@@ -266,7 +266,7 @@
 
 
         ]]></script>
-<dataSource name="EveneMongo" type="MongoDataSource" database="evene" />
+<dataSource name="EveneMongo" type="MongoDataSource" database="evene"  port="37017" host="127.0.0.1"/>
  <document name="node">
   <entity name="livre" processor="MongoEntityProcessor"
    query="{'status':1, 'type':'book'}"
@@ -304,43 +304,37 @@
   <entity name="article" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'article'}"
           collection="node"
-          datasource="EveneMongo"
-          transformer="">
+          datasource="EveneMongo">
       <filed column="_id" name="_id" mongoField="nid" />
   </entity>
   <entity name="event" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'event'}"
           collection="node"
-          datasource="EveneMongo"
-          transformer="">
+          datasource="EveneMongo">
       <filed column="_id" name="_id" mongoField="nid" />
   </entity>
   <entity name="film" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'film'}"
           collection="node"
-          datasource="EveneMongo"
-          transformer="">
+          datasource="EveneMongo">
       <filed column="_id" name="_id" mongoField="nid" />
   </entity>
   <entity name="lieu" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'place'}"
           collection="node"
-          datasource="EveneMongo"
-          transformer="">
+          datasource="EveneMongo">
       <filed column="_id" name="_id" mongoField="nid" />
   </entity>
   <entity name="citation" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'citation'}"
           collection="node"
-          datasource="EveneMongo"
-          transformer="">
+          datasource="EveneMongo">
       <filed column="_id" name="_id" mongoField="nid" />
   </entity>
   <entity name="forum" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'forum'}"
           collection="node"
-          datasource="EveneMongo"
-          transformer="">
+          datasource="EveneMongo">
       <filed column="_id" name="_id" mongoField="nid" />
   </entity>
 

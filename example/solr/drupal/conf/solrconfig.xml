@@ -944,8 +944,14 @@
        <!-- Faceting defaults -->
        <str name="facet">on</str>
          <str name="facet.field">type</str>
-         <str name="facet.field">taxonomy_names</str>
-         <str name="facet.field">comment_count</str>
+         <str name="f.type.facet.sort">index</str>
+<!--         <str name="facet.field">taxonomy_names</str>
+         <str name="f.taxonomy_names.facet.sort">index</str>-->
+<!--         <str name="facet.field">taxonomy_names</str>-->
+<!--         <str name="facet.field">comment_count</str>-->
+
+<!--         <str name="facet.pivot">taxonomy_names,type</str>-->
+
 
 
 <!--       <str name="facet.field">manu_exact</str>

@@ -3,7 +3,13 @@
     #foreach($field in $response.facetFields)
       ## Hide facets without value
       #if($field.values.size() > 0)
-      <span class="facet-field">$field.name</span>
+      #if($field.name == "type")
+        <span class="facet-field">Rubrique :</span>
+      #elseif($field.name == "taxonomy_names")
+        <span class="facet-field">Catégories :</span>
+      #else
+        <span class="facet-field">$field.name :</span>
+      #end
 
       <ul>
         #foreach($facet in $field.values)

@@ -19,6 +19,11 @@
         <input type="hidden" name="fq" id="allFQs" value="$esc.html($fq)"/>
       #end
     #end
+    #foreach($ff in $request.params.getParams('facet.field'))
+      #if ($ff != "{!bbox}")
+         <input type="hidden" name="facet.field" id="allFFs" value="$esc.html($ff)"/>
+      #end
+    #end
     <div class="constraints" #annTitle("Lists out the &fq filters.  Click to remove.")>
       #foreach($fq in $params.getParams('fq'))
         #set($previous_fq_count=$velocityCount - 1)

@@ -8,6 +8,34 @@
           content="victor hugo, evenement victor hugo, evenements victor hugo, concert victor hugo, exposition victor hugo, expo victor hugo, spectacle victor hugo, film victor hugo, dvd victor hugo, musique victor hugo, cd victor hugo, theatre victor hugo, piece victor hugo, scene victor hugo, livre victor hugo, livres victor hugo, art victor hugo, peinture victor hugo, sculpture victor hugo, roman victor hugo, dictionnaire victor hugo, encyclopedie victor hugo, lecture victor hugo, litterature victor hugo, poesie victor hugo, critique victor hugo, biographie victor hugo, bio victor hugo, auteur victor hugo, ecrivain victor hugo, celebrite victor hugo, people victor hugo, star victor hugo, acteur victor hugo, actrice victor hugo, personnalite victor hugo, musee victor hugo, infos victor hugo, news victor hugo, actualité victor hugo, photos victor hugo, videos victor hugo"/>
     <meta name="description"
           content="victor hugo - Découvrez le meilleur des événements culture, les livres sur victor hugo, les auteurs, artistes et célébrités associés à victor hugo, les lieux victor hugo, musée victor hugo, cinéma victor hugo, film victor hugo, dvd victor hugo, cd victor hugo, expo victor hugo, pièce de theatre victor hugo, cadeaux victor hugo, forum victor hugo."/>
+
+      <script type="text/javascript" src="#{url_root}/js/lib/jquery-1.7.2.min.js"></script>
+      <link rel="stylesheet" href="#{url_for_solr}/admin/file?file=/velocity/jquery.autocomplete.css&contentType=text/css" type="text/css" />
+      <script type="text/javascript" src="#{url_for_solr}/admin/file?file=/velocity/jquery.autocomplete.js&contentType=text/javascript"></script>
+       <script type="text/javascript" src="#{url_for_solr}/admin/file?file=/velocity/pub.js&contentType=text/javascript"></script>
+
+
+        <script>
+        $(document).ready(function(){
+          $("\#q").autocomplete('#{url_for_solr}/terms', {  ## backslash escaped #q as that is a macro defined in VM_global_library.vm
+               extraParams:{
+                 'terms.prefix': function() { return $("\#q").val();},
+                 'terms.sort': 'count',
+                 'terms.fl': 'title',
+                 'wt': 'velocity',
+                 'v.template': 'suggest'
+               }
+             }
+          ).keydown(function(e){
+            if (e.keyCode === 13){
+              $("#query-form").trigger('submit');
+            }
+          });
+
+           //http://127.0.0.1:8983/solr/terms?terms.fl=name&terms.prefix=i&terms.sort=count
+        });
+
+        </script>
     <script type='text/javascript'><!--// <![CDATA[
     var OA_zones = {
         'bottom_privilege_960x153_4': 4,
@@ -42,16 +70,15 @@
     <link type="text/css" rel="stylesheet" media="all"
           href="http://static.evene.fr/files/advagg_css/css_55d7fd3b2ef9e8fab60a90b95f6e216e_7.css"/>
 
-
+<!--
     <script type="text/javascript"
             src="http://static.evene.fr/files/advagg_js/js_2af3a9deb9e6777e473b9e7ff9d2a3bf_4.js"></script>
-    <script type="text/javascript">
-        <!--//-->
-        <![CDATA[//><!--
+   <script type="text/javascript">
+        <![CDATA[>
         jQuery.extend(Drupal.settings, {"basePath": "\/", "fbconnect": {"user_pictures": "allow", "language_code": "fr_FR", "app_id": "175108159196731", "debug": 0, "connect_js": "document.location.protocol + \u0027\/\/connect.facebook.net\/fr_FR\/all.js\u0027", "loginout_mode": "ask", "invite_name": "Evene", "fast_reg_mode": 1, "fast_reg_autoname": 1, "fbuid": null, "user": {"uid": 0, "fbuid": null}}, "fivestar": {"titleUser": "Votre notation: ", "titleAverage": "Moyenne: ", "feedbackSavingVote": "En train d\u0027enregistrer votre vote...", "feedbackVoteSaved": "Votre vote a \u00e9t\u00e9 enregistr\u00e9.", "feedbackDeletingVote": "Suppression de votre vote...", "feedbackVoteDeleted": "Votre vote a \u00e9t\u00e9 supprim\u00e9."}, "eveneClubTabUrls": {"default": "default", "notes_avis": "notes-avis", "favoris": "favoris", "citations": "citations", "citabooks": "citabooks", "contributions": "contributions", "activite": "activite", "presdechezvous": "pres-de-chez-vous", "citabook": "citabook", "contribution-event": "contribution-event", "contribution-article": "contribution-article"}, "eveneMenu": {"active": ["\/search\/apachesolr"]}, "eveneUsers": {"presentationCharactersMax": 500}, "eveneSite": {"commentCharactersMax": 1500}, "eveneSearch": {"keywords": "victor hugo", "section": 13, "searchString": "R\u00e9ponses de 1 \u00e0 15 \u003Cspan\u003E(sur environ 1349 r\u00e9sultats)\u003C\/span\u003E"}, "ahah": {"edit-subscribe": {"url": "\/ajax\/form\/simplenews_subscriptions_multi_block_form", "event": "mousedown", "keypress": true, "wrapper": "ahah-form-wrapper", "selector": "#edit-subscribe", "effect": "none", "method": "replace", "progress": {"type": "no-throbber"}, "button": {"op": "OK"}}}});
-        //--><!
         ]]>
     </script>
+-->
 </head>
 
 <body class="evene-body fluid" itemscope itemtype="http://schema.org/WebPage">
@@ -906,7 +933,7 @@ SmartAdServer('42302/286773', '18318', '');           </script>
 </div>
 <!-- Evene Ads Figaro: evene_accueil_rectangle_2_300x250 END -->
 
-
+<!--
 <div class="block block-white">
     <div class="fnac-spbox btqbox">
         <a title="Boutique Evene" class="lienboutique" target="_blank" href="http://www.evene.fr/boutique">
@@ -922,8 +949,7 @@ SmartAdServer('42302/286773', '18318', '');           </script>
 
                     <a target="_blank" title="Portrait Légendaires du Jazz"
                        href="http://www.evene.fr/boutique/cadeau-papeterie/portrait-l%C3%A9gendaires-du-jazz?utm_source=Evene&utm_medium=site&utm_content=APMeiV&utm_campaign=EVSite">
-                        <img src="http://static.evene.fr/boutique/sites/default/files/imagecache/content_boutique_block/imagecache/magento/media/catalog/productno_selection"
-                             width="70" height="70" alt="Portrait Légendaires du Jazz"
+                        <img src="http://static.evene.fr/boutique/sites/default/files/imagecache/content_boutique_block/imagecache/magento/media/catalog/productno_selection" width="70" height="70" alt="Portrait Légendaires du Jazz"
                              title="Portrait Légendaires du Jazz"/>
                     </a>
 
@@ -976,7 +1002,7 @@ SmartAdServer('42302/286773', '18318', '');           </script>
             idées cadeaux à découvrir &gt; &gt;</a>
     </div>
 </div>
-
+-->
 
 <!-- Evene Ads Ligatus: ligatus_colonne_droite_300_250 BEGIN -->
 <div class="block block-google block-ligatus">
