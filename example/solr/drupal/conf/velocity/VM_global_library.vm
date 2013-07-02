@@ -139,12 +139,13 @@
   #if($response.response.highlighting.get($docId).get($f).get(0))
     #set($pad = "")
     #foreach($v in $response.response.highlighting.get($docId).get($f))
+
 $pad$v... ##
       #set($pad = " ... ")
     #end
   #else
     #foreach($v in $doc.getFieldValues($f))
-$v##
+    #truncate($v 350)
     #end
   #end
 #end  
@@ -173,4 +174,19 @@ $math.toDouble($math.add($inval,$gapval))##
 #else
 $math.add($inval,$gapval)##
 #end
+#end
+
+#**
+ * For truncating a variable's output at a specific length.
+ *
+ * Usage:
+ *   "#truncate( 'this is too long' 10 )" -> "this is to..."
+ *
+ * @param the variable to be truncated
+ * @param the length of the output (not including the ellipses!)
+ * @author <a href="mailto:nathan@esha.com">Nathan Bubna</a>
+ *#
+#macro( truncate $stringVariable $length )
+#set( $truncateMe = "$!stringVariable" )
+#if( $truncateMe.length() <= $length)$truncateMe#else$!{truncateMe.substring(0,$length)}...#end##
 #end
