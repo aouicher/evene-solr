@@ -1,0 +1,168 @@
+## Mimetype to extension map for detecting file type and show icon
+## List of types match the icons in /solr/img/filetypes
+#set($extMap = {"application/x-7z-compressed": "7z",
+                 "application/postscript": "ai",
+                 "application/pgp-signature": "asc",
+                 "application/octet-stream": "bin",
+                 "application/x-bzip2": "bz2",
+                 "text/x-c": "c",
+                 "application/vnd.ms-htmlhelp": "chm",
+                 "application/java-vm": "class",
+                 "text/css": "css",
+                 "text/csv": "csv",
+                 "application/x-debian-package": "deb",
+                 "application/msword": "doc",
+                 "message/rfc822": "eml",
+                 "image/gif": "gif",
+                 "application/winhlp": "hlp",
+                 "text/html": "html",
+                 "application/java-archive": "jar",
+                 "text/x-java-source": "java",
+                 "image/jpeg": "jpeg",
+                 "application/javascript": "js",
+                 "application/vnd.oasis.opendocument.chart": "odc",
+                 "application/vnd.oasis.opendocument.formula": "odf",
+                 "application/vnd.oasis.opendocument.graphics": "odg",
+                 "application/vnd.oasis.opendocument.image": "odi",
+                 "application/vnd.oasis.opendocument.presentation": "odp",
+                 "application/vnd.oasis.opendocument.spreadsheet": "ods",
+                 "application/vnd.oasis.opendocument.text": "odt",
+                 "application/pdf": "pdf",
+                 "application/pgp-encrypted": "pgp",
+                 "image/png": "png",
+                 "application/vnd.ms-powerpoint": "ppt",
+                 "audio/x-pn-realaudio": "ram",
+                 "application/x-rar-compressed": "rar",
+                 "application/vnd.rn-realmedia": "rm",
+                 "application/rtf": "rtf",
+                 "application/x-shockwave-flash": "swf",
+                 "application/vnd.sun.xml.calc": "sxc",
+                 "application/vnd.sun.xml.draw": "sxd",
+                 "application/vnd.sun.xml.impress": "sxi",
+                 "application/vnd.sun.xml.writer": "sxw",
+                 "application/x-tar": "tar",
+                 "application/x-tex": "tex",
+                 "text/plain": "txt",
+                 "text/x-vcard": "vcf",
+                 "application/vnd.visio": "vsd",
+                 "audio/x-wav": "wav",
+                 "audio/x-ms-wma": "wma",
+                 "video/x-ms-wmv": "wmv",
+                 "application/vnd.ms-excel": "xls",
+                 "application/xml": "xml",
+                 "application/x-xpinstall": "xpi",
+                 "application/zip": "zip"})
+
+
+#if($doc.getFieldValue('title'))
+  #set($title = $esc.html($doc.getFirstValue('title')))
+#else
+  #set($title = "["+$doc.getFieldValue('id')+"]")
+#end
+
+#if($doc.getFieldValue('path'))
+  #set($url = $doc.getFieldValue('path'))
+#elseif($doc.getFieldValue('resourcename'))
+  #set($url = "file:///$doc.getFieldValue('resourcename')")
+#else
+  #set($url = "$doc.getFieldValue('id')")
+#end
+
+#if($doc.getFieldValue('path'))
+  #set($path = $doc.getFieldValue('path'))
+#else
+  #set($path = "node/" + $doc.getFieldValue('nid'))
+#end
+#set($supportedtypes = "7z;ai;aiff;asc;audio;bin;bz2;c;cfc;cfm;chm;class;conf;cpp;cs;css;csv;deb;divx;doc;dot;eml;enc;file;gif;gz;hlp;htm;html;image;iso;jar;java;jpeg;jpg;js;lua;m;mm;mov;mp3;mpg;odc;odf;odg;odi;odp;ods;odt;ogg;pdf;pgp;php;pl;png;ppt;ps;py;ram;rar;rb;rm;rpm;rtf;sig;sql;swf;sxc;sxd;sxi;sxw;tar;tex;tgz;txt;vcf;video;vsd;wav;wma;wmv;xls;xml;xpi;xvid;zip")
+#set($ct = $list.get($doc.getFirstValue('content_type').split(";"),0))
+#set($filename = $doc.getFieldValue('resourcename'))
+
+#set($filetype = false)
+#set($filetype = $extMap.get($ct))
+##TODO: falling back to file extension is convenient, except when you don't have an icon for that extension
+##      example "application/vnd.openxmlformats-officedocument.wordprocessingml.document" document
+##        with a .docx extension.  It'd be nice to fall back to an "unknown" or the existing "file" type
+##      We sort of do this below, but only if the filename has no extension (anything after the last dot).
+#if(!$filetype)#set($filetype = $filename.substring($filename.lastIndexOf(".")).substring(1))#end
+##if(!$filetype)#set($filetype = "file")#end
+##if(!$supportedtypes.contains($filetype))#set($filetype = "file")#end
+
+#if($doc.getFieldValue('picture'))
+#if($doc.getFieldValue('picture') == 'files/user_pictures/picture-1.png')
+#set($pictureLink = "#domain_site_static/sites/all/themes/evene/images/dummy/dummy-90-90.jpg")
+#else
+#set($pictureLink = "#domain_site_static/img/article/"+$doc.getFieldValue('picture'))
+#end
+#end
+#parse('debug.vm')
+<div class="block-aller-plus">
+       <div class="category">article</div>
+<div class="node node-$doc.getFieldValue('nid')">
+  <ul class="ui-content people-ui">
+    <li class="first last">
+              <div class="img">
+          <span class="unteflutche" onclick='EveneSite.unteflutche("$doc.getFieldValue('path_mask')"); return false;'><img src="$pictureLink" class="evene_images imagecache evene_images-evene_image-article imagecache-evene_image-article evene_images- imagecache- evene_images-evene_image-article_default imagecache-evene_image-article_default" width="165" alt="$doc.getFieldValue('title')"/></span>        </div>
+            <div class="txt">
+                  <h3><a href="#domain_site/${path}">$doc.getFieldValue('title')</a></h3>
+                                  <p>#field('body') </p>
+                          <span class="link">
+            Plus sur <span class="unteflutche" onclick='EveneSite.unteflutche("$doc.getFieldValue('path_mask')"); return false;'>#field('title')</span>          </span>
+        
+      </div>
+      <div class="evene-fav">
+        <div class="tooltip-info">
+      
+      <div class="bottom-info">
+        <p><b>Vous aussi écrivez votre commentaire ou votre critique</b></p>
+        <span class="unteflutche link" onclick="EveneSite.unteflutche("$doc.getFieldValue('path_mask')"); return false;">Réagissez</span>        <div class="enddiv"></div>
+      </div>
+    </div>
+          #if($doc.getFieldValue('comment_count') && $doc.getFieldValue('comment_count') != 0)
+                                <div class="avis avis-small tooltip tooltip-processeed first-over">
+                                    <span>$doc.getFieldValue('comment_count')</span>
+                                  </div>
+                                #else
+                                <div class="avis avis-small avis-empty tooltip tooltip-processeed first-over">
+                                    <span>&nbsp;</span>
+                                  </div>
+                                #end
+    
+    <ul class="ui-content">
+              <li class="first last">
+          Membres (0)          <span class="static-stars harts-orange static-stars-0">
+            <a href="#domain_site/${path}"><span class="stars harts-orange">&nbsp;</span></a>
+          </span>
+        </li>
+          </ul>
+
+          </div>
+          </li>
+  </ul>
+        <div class="block-votes
+            ">
+                        <ul class="ui-content flag-wrapper favorite-block-$doc.getFieldValue('nid') long">
+      <li class="first last">
+        <div class="tooltip-info">
+          <h4>«&nbsp;#field('title')&nbsp;»</h4>
+          <p>Ajouter cet article à vos favoris</p>
+          <a class="evene-fancybox-popup link tooltip-flag fancybox-false" href="/user/login" rel="nofollow">
+            Ajouter à mes favoris          </a>
+          <div class="enddiv"></div><div class="bottom-info">
+            <span class="info-text">
+              Votre espace personnel sur Evene.fr vous permet de découvrir du contenu culturel qui
+               vous correspond. L'espace personnel, c'est un moteur de recommandations selon vos goûts.              <b><a href="/" class="link evene-trigger-login profile-redirect">Accédez à votre espace personnel</a></b>
+            </span>
+          </div>
+        </div>
+        <span class="evene-fav tooltip evene-fav-off tooltip-processeed">
+          <a class="evene-fancybox-popup fancybox-false" href="/user/login" rel="nofollow">
+                          Ajouter à mes favoris                      </a>
+          <span class="num">0</span>
+        </span>
+      </li>
+    </ul>
+     #parse('share.vm')
+            <div class="enddiv"></div>
+  </div>
+  </div>
+              </div>
