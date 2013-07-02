@@ -11,6 +11,8 @@
   #parse("doc-film.vm")
 #elseif($doc.getFieldValue('type')=='celebrity')
   #parse("doc-celebrity.vm")
+#elseif($doc.getFieldValue('type')=='article' || $doc.getFieldValue('type')=='dossier')
+  #parse("doc-article.vm")
 #else
   #parse("richtext-doc.vm")
 #end
