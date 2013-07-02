@@ -170,23 +170,7 @@
 
                 function book1(row)
                 {
-                    if(row.get('taxonomy') !== null)
-                    {
-                        var taxo = JSON.parse(row.get('taxonomy'))
 
-                        for(var i in taxo) {
-                            if(taxo[i] !== null)
-                            {
-                                if(taxo[i].name !== null  && taxo[i].vid !== null)
-                                {
-                                    if(taxo[i].vid == 2)
-                                    {
-                                        row.put('taxonomy_names',taxo[i].name);
-                                    }
-                                }
-                            }
-                        }
-                    }
 
 
 
@@ -443,7 +427,34 @@
                     {
                         //row.put('path_mask',evene_site_mask_url(EVENE_DOMAIN + row.get('path')));
                     }
+
+                    if(row.get('taxonomy') !== null)
+                    {
+                        var taxo = JSON.parse(row.get('taxonomy'))
+
+                        for(var i in taxo) {
+                            if(taxo[i] !== null)
+                            {
+                                if(taxo[i].name !== null  && taxo[i].vid !== null)
+                                {
+                                    if(taxo[i].vid == 2)
+                                    {
+                                        row.put('taxonomy_names',taxo[i].name);
+                                    }
+                                }
+                            }
+                        }
+                    }
                      return row;
+                }
+
+                function taxoPath(row)
+                {
+                    if(row.get('path') !== null)
+                    {
+                        row.put('taxonomy_path',row.get('path'));
+                    }
+                    return row;
                 }
 
 
@@ -475,6 +486,15 @@
               collection="node"
               datasource="EveneMongo"
               transformer="script:book3">
+
+      </entity>
+      <entity name="livre_categorie"
+              processor="MongoEntityProcessor"
+              onError="continue"
+              query="{'type': 'listing', 'title':'${livre.taxonomy_names}'}.limit(1)"
+              collection="node"
+              datasource="EveneMongo"
+              transformer="script:taxoPath">
 
       </entity>
   </entity>

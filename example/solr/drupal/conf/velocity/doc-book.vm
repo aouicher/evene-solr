@@ -146,20 +146,27 @@
         <div class="img">
           <span class="unteflutche" onclick='EveneSite.unteflutche("$doc.getFieldValue('path_mask')"); return false;'><img src="$pictureLink" class="evene_images imagecache evene_images-evene_image-livre-grande imagecache-evene_image-livre-grande evene_images- imagecache- evene_images-evene_image-livre-grande_default imagecache-evene_image-livre-grande_default " width="108" height="162" alt="Cat-walk"></span>    </div>
         <div class="txt">
-                  <h4><a href="#domain_site/livres/categorie/litterature-roman-francais.php">#field('taxonomy_names')</a></h4>
+
+                  <h4>#if($doc.getFieldValue('taxonomy_path'))<a href="#domain_site/$doc.getFieldValue('taxonomy_path')">#end#field('taxonomy_names')#if($doc.getFieldValue('taxonomy_path'))</a>#end</h4>
 
                   <h3><a href="#domain_site/${path}">#field('title')</a></h3>
                   #if($doc.getFieldValue('field_subtitle_final'))
                   <div class="description-info">#field('field_subtitle_final')</div>
                   #end
-                  <h4 class="de">
-              de <span class="underline"><a href="#field('book_author_content_celebrity_path')" itemprop="author">#field('book_author_content_celebrity')</a></span>                      <a href="/tout/michel-quint" class="filter-text-plus">[+]</a>
-                      </h4>
+                  #if($doc.getFieldValue('book_author_content_celebrity'))
+                  #if($doc.getFieldValue('book_author_content_celebrity_path'))
+                  <h4 class="de">de <span class="underline"><a href="$doc.getFieldValue('book_author_content_celebrity_path')" itemprop="author">$doc.getFieldValue('book_author_content_celebrity')</a></span><a href="#tout($doc.getFieldValue('book_author_content_celebrity'))" class="filter-text-plus">[+]</a>
+                  </h4>
+                  #else
+                  <h4 class="de">de $doc.getFieldValue('book_author_content_celebrity')<a href="#q($doc.getFieldValue('book_author_content_celebrity'))" class="filter-text-plus">[+]</a>
+                  </h4>
+                  #end
+                  #end
 
                   <span class="author">
                           #if($doc.getFieldValue('ss_book_label'))
                           Editeur : <b>$doc.getFieldValue('ss_book_label')</b>
-                              <a href="/tout/joelle-losfeld" class="filter-text-plus">[+]</a>
+                              <a href="#tout($doc.getFieldValue('ss_book_label'))" class="filter-text-plus">[+]</a>
 
                 |
                 #end

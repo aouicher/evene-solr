@@ -459,7 +459,7 @@ CHANGE ALEX
    <field name="tid"  type="integer" indexed="true" stored="true" multiValued="true"/>
    <field name="vid"  type="integer" indexed="true" stored="true" multiValued="true"/>
    <field name="taxonomy_names" type="string" indexed="true" stored="true" termVectors="true" multiValued="true" omitNorms="true"/>
-
+   <field name="taxonomy_path" type="string" indexed="true" stored="true" termVectors="true"/>
    <!-- The string version of the title is used for sorting -->
    <copyField source="title" dest="sort_title"/>
    <!-- The string versions of the name used for sorting/multi-site facets -->
