@@ -155,7 +155,7 @@
         -->
     <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
       <analyzer type="index">
-
+          <charFilter class="solr.HTMLStripCharFilterFactory"/>
         <filter class="solr.ASCIIFoldingFilterFactory" />
         <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
         <tokenizer class="solr.WhitespaceTokenizerFactory"/>
@@ -185,11 +185,12 @@
         <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
       </analyzer>
       <analyzer type="query">
+          <charFilter class="solr.HTMLStripCharFilterFactory"/>
         <filter class="solr.ASCIIFoldingFilterFactory" />
         <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
 
         <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-          <charFilter class="solr.HTMLStripCharFilterFactory"/>
+        <charFilter class="solr.HTMLStripCharFilterFactory"/>
         <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
         <filter class="solr.StopFilterFactory"
                 ignoreCase="true"
@@ -214,6 +215,7 @@
     <!-- for exact word matches -->
     <fieldType name="text_exact" class="solr.TextField" positionIncrementGap="100">
       <analyzer>
+          <charFilter class="solr.HTMLStripCharFilterFactory"/>
         <tokenizer class="solr.StandardTokenizerFactory"/>
         <filter class="solr.LowerCaseFilterFactory"/>
 <!--        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true"/>-->
@@ -270,7 +272,6 @@
        <filter class="solr.RemoveDuplicatesTokenFilterFactory" />
      </analyzer>
    </fieldType>
-
     <!-- This is an example of using the KeywordTokenizer along
          With various TokenFilterFactories to produce a sortable field
          that does not include some properties of the source text
@@ -431,6 +432,7 @@
    <field name="type_name" type="string" indexed="true" stored="true" termVectors="true" termPositions="true"/>
    <field name="path" type="string" indexed="true" stored="true"/>
    <field name="path_alias" type="text" indexed="true" stored="true" termVectors="true"/>
+   <field name="path_mask" type="string" indexed="true" stored="true"/>
    <field name="uid"  type="integer" indexed="true" stored="true"/>
    <!-- <field name="name" type="text" indexed="true" stored="true" termVectors="true"/> -->
    <!--   <field name="sname" type="string" indexed="true" stored="false"/>-->
@@ -488,6 +490,7 @@ CHANGE ALEX
    <copyField source="title" dest="spell"/>
    <copyField source="body" dest="spell"/>
    <copyField source="body" dest="body_exact"/>
+   <copyField source="body" dest="body_strip_html"/>
    <copyField source="ss_content_description" dest="ss_content_description_exact"/>
    <copyField source="ss_book_label" dest="spell"/>
    <copyField source="title" dest="title_exact"/>

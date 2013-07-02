@@ -2,10 +2,170 @@
 <dataConfig>
     <script><![CDATA[
 
+                var EVENE_DOMAIN = "http://www.evene.fr/";
 
+               function encodeUrl(encoded_url) {
+                    var url = getRealUrl(encoded_url);
+                    url = strrev(url);
+                    return url;
+               }
 
-                function first(obj) {
+               function evene_site_mask_url(url) {
+                    var maskInput = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890:.-/?&%+_=#(),@[]{};^~$';
+                    var maskOutput = 'op8#0qr:stxyEFYZ.-/?7zaR)ST9UV_WXbcdeuvwfghijkl&456mnG+HIJKL%123=MNOPQA(BCD,@[]{};^~$';
+
+                    // First reverse the string.
+                    var reverse_url = strrev(url);
+                    return '#' + strtr(reverse_url, maskInput, maskOutput);
+               }
+
+               function strtr(str, from, to) {
+                    // "strtr" adapté depuis : http://kevin.vanzonneveld.net
+                    var fr = '',
+                        i = 0,
+                        j = 0,
+                        lenStr = 0,
+                        lenFrom = 0,
+                        tmpStrictForIn = false,
+                        fromTypeStr = '',
+                        toTypeStr = '',
+                        istr = '';
+                    var tmpFrom = [];
+                    var tmpTo = [];
+                    var ret = '';
+                    var match = false;
+
+                    // Received replace_pairs?
+                    // Convert to normal from->to chars
+                    if (typeof from === 'object') {
+                        tmpStrictForIn = this.ini_set('phpjs.strictForIn', false); // Not thread-safe; temporarily set to true
+                        from = this.krsort(from);
+                        this.ini_set('phpjs.strictForIn', tmpStrictForIn);
+
+                        for (fr in from) {
+                            if (from.hasOwnProperty(fr)) {
+                                tmpFrom.push(fr);
+                                tmpTo.push(from[fr]);
+                            }
+                        }
+
+                        from = tmpFrom;
+                        to = tmpTo;
+                    }
+
+                    // Walk through subject and replace chars when needed
+                    lenStr = str.length;
+                    lenFrom = from.length;
+                    fromTypeStr = typeof from === 'string';
+                    toTypeStr = typeof to === 'string';
+
+                    for (i = 0; i < lenStr; i++) {
+                        match = false;
+                        if (fromTypeStr) {
+                            istr = str.charAt(i);
+                            for (j = 0; j < lenFrom; j++) {
+                                if (istr == from.charAt(j)) {
+                                    match = true;
+                                    break;
+                                }
+                            }
+                        } else {
+                            for (j = 0; j < lenFrom; j++) {
+                                if (str.substr(i, from[j].length) == from[j]) {
+                                    match = true;
+                                    // Fast forward
+                                    i = (i + from[j].length) - 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if (match) {
+                            ret += toTypeStr ? to.charAt(j) : to[j];
+                        } else {
+                            ret += str.charAt(i);
+                        }
+                    }
+
+                    return ret;
+               }
+
+               function strrev(str) {
+                    return str.split('').reverse().join('');
+               }
+
+               function first(obj) {
                     return obj[Object.keys(obj)[0]];
+                }
+
+                function article1(row) {
+                    if(row.get('field_article_image') !== null)
+                    {
+                        var field_article_image = JSON.parse(row.get('field_article_image'))
+
+                        if(field_article_image !== null) {
+                            for(var i in field_article_image) {
+
+                                if(field_article_image[i] !== null)
+                                {
+                                    if(field_article_image[i].filename)
+                                    {
+                                        row.put('picture',field_article_image[i].filename);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_article_text') !== null)
+                    {
+                        var field_article_text = JSON.parse(row.get('field_article_text'))
+
+                            for(var i in field_article_text) {
+
+                                if(field_article_text[i] !== null)
+                                {
+                                    if(field_article_text[i].value !== null)
+                                    {
+                                        row.put('body',field_article_text[i].value);
+                                    }
+                                }
+                            }
+                    }
+
+                    if(row.get('field_subtitle') !== null)
+                    {
+                        var field_subtitle = JSON.parse(row.get('field_subtitle'))
+
+                        for(var i in field_subtitle) {
+                            if(field_subtitle[i] !== null)
+                            {
+                                if(field_subtitle[i].value !== null)
+                                {
+                                    row.put('field_subtitle_final',field_subtitle[i].value);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('taxonomy') !== null)
+                    {
+                        var taxo = JSON.parse(row.get('taxonomy'))
+
+                        for(var i in taxo) {
+                            if(taxo[i] !== null)
+                            {
+                                if(taxo[i].name !== null  && taxo[i].vid !== null)
+                                {
+                                    if(taxo[i].vid == 2)
+                                    {
+                                        row.put('taxonomy_names',taxo[i].name);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    return row;
                 }
 
                 function book1(row)
@@ -15,11 +175,14 @@
                         var taxo = JSON.parse(row.get('taxonomy'))
 
                         for(var i in taxo) {
-                            if(taxo[i].name !== null  && taxo[i].vid !== null)
+                            if(taxo[i] !== null)
                             {
-                                if(taxo[i].vid == 2)
+                                if(taxo[i].name !== null  && taxo[i].vid !== null)
                                 {
-                                    row.put('taxonomy_names',taxo[i].name);
+                                    if(taxo[i].vid == 2)
+                                    {
+                                        row.put('taxonomy_names',taxo[i].name);
+                                    }
                                 }
                             }
                         }
@@ -31,12 +194,16 @@
                     if(row.get('field_fnac_url') !== null)
                     {
                         var fnac = JSON.parse(row.get('field_fnac_url'))
+
                         for(var i in fnac)
                         {
-                            /*if(fnac[i].url !== null)
+                            if(fnac[i] !== null)
                             {
-                                row.put('fnac_url',taxo[i].url);
-                            }*/
+                                if(fnac[i].url !== null)
+                                {
+                                    //row.put('fnac_url',evene_site_mask_url(fnac[i].url));
+                                }
+                            }
                         }
                     }
 
@@ -45,9 +212,12 @@
                         var field_publication_date = JSON.parse(row.get('field_publication_date'))
                         for(var i in field_publication_date)
                         {
-                            if(field_publication_date[i].value !== null)
+                            if(field_publication_date[i] !== null)
                             {
-                                row.put('ds_book_publication_timestamp',new java.util.Date(field_publication_date[i].value * 1000));
+                                if(field_publication_date[i].value !== null)
+                                {
+                                    row.put('ds_book_publication_timestamp',new java.util.Date(field_publication_date[i].value * 1000));
+                                }
                             }
                         }
                     }
@@ -57,11 +227,14 @@
                         var field_content_celebrity = JSON.parse(row.get('field_content_celebrity'))
                         for(var i in field_content_celebrity)
                         {
-                            if(field_content_celebrity[i].nid !== null && field_content_celebrity[i].type !== null)
+                            if(field_content_celebrity[i] !== null)
                             {
-                                if(field_content_celebrity[i].type == 50)
+                                if(field_content_celebrity[i].nid !== null && field_content_celebrity[i].type !== null)
                                 {
-                                    row.put('field_content_celebrity_nid',field_content_celebrity[i].nid);
+                                    if(field_content_celebrity[i].type == 50)
+                                    {
+                                        row.put('field_content_celebrity_nid',field_content_celebrity[i].nid);
+                                    }
                                 }
                             }
                         }
@@ -263,6 +436,15 @@
                     return row;
 
                 }
+                function general(row)
+                {
+
+                    if(row.get('path') !== null)
+                    {
+                        //row.put('path_mask',evene_site_mask_url(EVENE_DOMAIN + row.get('path')));
+                    }
+                     return row;
+                }
 
 
         ]]></script>
@@ -272,8 +454,9 @@
    query="{'status':1, 'type':'book'}"
    collection="node"
    datasource="EveneMongo"
-   transformer="script:book1">
-      <filed column="_id" name="_id" mongoField="nid" />
+   transformer="script:general,script:book1,HTMLStripTransformer">
+      <field column="_id" name="_id" mongoField="nid" />
+      <field column="body" stripHTML="true" />
       <entity name="livre_label"
               processor="MongoEntityProcessor"
               onError="continue"
@@ -282,6 +465,7 @@
               collection="node"
               datasource="EveneMongo"
               transformer="script:book2">
+          <field column="body" name="body" stripHTML="true" />
 
       </entity>
       <entity name="livre_auteur"
@@ -298,159 +482,57 @@
           query="{'status':1, 'type':'celebrity'}"
           collection="node"
           datasource="EveneMongo"
-          transformer="script:celebrity1">
-      <filed column="_id" name="_id" mongoField="nid" />
+          transformer="script:general,script:celebrity1,HTMLStripTransformer">
+      <field column="_id" name="_id" mongoField="nid" />
+      <field column="body" name="body" stripHTML="true" />
   </entity>
   <entity name="article" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'article'}"
           collection="node"
-          datasource="EveneMongo">
-      <filed column="_id" name="_id" mongoField="nid" />
+          datasource="EveneMongo"
+          transformer="script:general,script:article1,HTMLStripTransformer">
+      <field column="_id" name="_id" mongoField="nid" />
+      <field column="body" name="body" stripHTML="true" />
   </entity>
   <entity name="event" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'event'}"
           collection="node"
-          datasource="EveneMongo">
-      <filed column="_id" name="_id" mongoField="nid" />
+          datasource="EveneMongo"
+          transformer="script:general,HTMLStripTransformer">
+      <field column="_id" name="_id" mongoField="nid" />
+      <field column="body" name="body" stripHTML="true" />
   </entity>
   <entity name="film" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'film'}"
           collection="node"
-          datasource="EveneMongo">
-      <filed column="_id" name="_id" mongoField="nid" />
+          datasource="EveneMongo"
+          transformer="script:general,HTMLStripTransformer">
+      <field column="_id" name="_id" mongoField="nid" />
+      <field column="body" name="body" stripHTML="true" />
   </entity>
   <entity name="lieu" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'place'}"
           collection="node"
-          datasource="EveneMongo">
-      <filed column="_id" name="_id" mongoField="nid" />
+          datasource="EveneMongo"
+          transformer="script:general,HTMLStripTransformer">
+      <field column="_id" name="_id" mongoField="nid" />
+      <field column="body" name="body" stripHTML="true" />
   </entity>
   <entity name="citation" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'citation'}"
           collection="node"
-          datasource="EveneMongo">
-      <filed column="_id" name="_id" mongoField="nid" />
+          datasource="EveneMongo"
+          transformer="script:general,HTMLStripTransformer">
+      <field column="_id" name="_id" mongoField="nid" />
+      <field column="body" name="body" stripHTML="true" />
   </entity>
   <entity name="forum" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'forum'}"
           collection="node"
-          datasource="EveneMongo">
-      <filed column="_id" name="_id" mongoField="nid" />
+          datasource="EveneMongo"
+          transformer="script:general,HTMLStripTransformer">
+      <field column="_id" name="_id" mongoField="nid" />
+      <field column="body" name="body" stripHTML="true" />
   </entity>
-
-
-
-<!--
-
-   transformer="MongoMapperTransformer"
--->
-
-<!--
-  <filed column="_id" name="_id" mongoField="_id" />
-  <field column="title" name="title" mongoField="title" />
-  <field column="title_exact" name="title_exact" mongoField="title_exact"/>
-  <field column="url" name="url" mongoField="url"/>
-  <field column="type" name="type" mongoField="type"/>
-  <field column="type_name" name="type_name" mongoField="type_name"/>
-  <field column="path" name="path" mongoField="path"/>
-  <field column="path_alias" name="path_alias" mongoField="path_alias"/>
-  <field column="uid" name="uid"  mongoField="uid"/>
-  <field column="created" name="created" mongoField="created"/>
-  <field column="changed" name="changed" mongoField="changed"/>
-  <field column="nid" name="nid"  mongoField="nid"/>
-  <field column="status" name="status" type="boolean" mongoField="status"/>
-  <field column="comment_count" name="comment_count" mongoField="comment_count"/>
-  <field column="tid" name="tid"  mongoField="tid"/>
-  <field column="vid" name="vid"  mongoField="vid"/>
-  <field column="body" name="body" mongoField="body"/>
-  <field column="field_section" name="field_section" mongoField="field_section"/>
-
-  <field column="picture" name="picture" mongoField="picture"  />
--->
-
-
-
-<!--
-  <field column="session_event_place_title_exact" name="session_event_place_title_exact" mongoField="session_event_place_title_exact"/>
-  <field column="session_event_place_title" name="session_event_place_title" mongoField="session_event_place_title"/>
-  <field column="session_event_title_exact" name="session_event_title_exact" mongoField="session_event_title_exact"/>
-  <field column="session_event_title" name="session_event_title" mongoField="session_event_title"/>
-  <field column="session_event_taxonomy" name="session_event_taxonomy" mongoField="session_event_taxonomy"/>
-  <field column="session_event_place_taxonomy" name="session_event_place_taxonomy" mongoField="session_event_place_taxonomy"/>
-  <field column="film_celebrity_realisateur" name="film_celebrity_realisateur" mongoField="film_celebrity_realisateur"/>
-  <field column="film_place_title" name="film_place_title" mongoField="film_place_title"/>
-  <field column="film_place_title_exact" name="film_place_title_exact" mongoField="film_place_title_exact"/>
-  <field column="film_place_address" name="film_place_address" mongoField="film_place_address"/>
-  <field column="place_address" name="place_address" mongoField="place_address"/>
-  <field column="film_place_zip_code" name="film_place_zip_code" mongoField="film_place_zip_code"/>
-  <field column="place_taxonomy" name="place_taxonomy" mongoField="place_taxonomy"/>
-  <field column="place_events_title" name="place_events_title" mongoField="place_events_title"/>
-  <field column="place_events_title_exact" name="place_events_title_exact" mongoField="place_events_title_exact"/>
-  <field column="sm_place_session" name="sm_place_session" mongoField="sm_place_session"/>
-  <field column="ss_session_event_place_address" name="ss_session_event_place_address" mongoField="ss_session_event_place_address"/>
-  <field column="title_exact_" name="title_exact_" type="text_exact_" mongoField="text_exact_"/>
-  <field column="ss_session_event_celebrity_title" name="ss_session_event_celebrity_title" mongoField="ss_session_event_celebrity_title"/>
-  <field column="site" name="site" mongoField="site"/>
-  <field column="hash" name="hash" mongoField="hash"/>
--->
-
-<!--  <field column="ss_film_casting_content_celebrity" name="ss_film_casting_content_celebrity" mongoField="ss_film_casting_content_celebrity"/>
-  <field column="ss_film_director_content_celebrity" name="ss_film_director_content_celebrity" mongoField="ss_film_director_content_celebrity"/>
-  <field column="ss_book_label" name="ss_book_label" mongoField="ss_book_label"/>
-  <field column="ss_film_label" name="ss_film_label" mongoField="ss_film_label"/>
-  <field column="ss_field_film_comment" name="ss_field_film_comment" mongoField="ss_field_film_comment"/>
-  <field column="ss_book_author_content_celebrity" name="ss_book_author_content_celebrity" mongoField="ss_book_author_content_celebrity"/>
-  <field column="ss_event_place" name="ss_event_place" mongoField="ss_event_place"/>
-  <field column="ss_event_category" name="ss_event_category" mongoField="ss_event_category"/>
-  <field column="ss_film_category" name="ss_film_category" mongoField="ss_film_category"/>
-  <field column="ss_place_category" name="ss_place_category" mongoField="ss_place_category"/>
-  <field column="ss_celebrity_info" name="ss_celebrity_info" mongoField="ss_celebrity_info"/>
-  <field column="ss_album_celebrity" name="ss_album_celebrity" mongoField="ss_album_celebrity"/>
-  <field column="ss_film_celebrity" name="ss_film_celebrity" mongoField="ss_film_celebrity"/>
-  <field column="ss_book_celebrity" name="ss_book_celebrity" mongoField="ss_book_celebrity"/>
-  <field column="ss_event_celebrity" name="ss_event_celebrity" mongoField="ss_event_celebrity"/>
-  <field column="ss_field_subtitle" name="ss_field_subtitle" mongoField="ss_field_subtitle"/>
-  <field column="ss_field_event_info" name="ss_field_event_info" mongoField="ss_field_event_info"/>
-  <field column="ss_field_event_site" name="ss_field_event_site" mongoField="ss_field_event_site"/>
-  <field column="ss_field_citation_celebrity" name="ss_field_citation_celebrity" mongoField="ss_field_citation_celebrity"/>
-  <field column="ss_field_citation_book" name="ss_field_citation_book" mongoField="ss_field_citation_book"/>
-  <field column="ss_field_citation_comment" name="ss_field_citation_comment" mongoField="ss_field_citation_comment"/>
-  <field column="ss_field_citation_thema" name="ss_field_citation_thema" mongoField="ss_field_citation_thema"/>
-  <field column="ss_field_content_celebrity" name="ss_field_content_celebrity" mongoField="ss_field_content_celebrity"/>
-  <field column="ss_field_place_region" name="ss_field_place_region" mongoField="ss_field_place_region"/>
-  <field column="ss_citation_source" name="ss_citation_source" mongoField="ss_citation_source"/>
-  <field column="ss_citation_author_content_celebrity" name="ss_citation_author_content_celebrity" mongoField="ss_citation_author_content_celebrity"/>
-  <field column="ss_content_description" name="ss_content_description" mongoField="ss_content_description"/>
-  <field column="ss_content_description_exact" name="ss_content_description_exact" mongoField="ss_content_description_exact"/>
-  <field column="ss_event_description" name="ss_event_description" mongoField="ss_event_description"/>
-  <field column="ss_thema_citation_description" name="ss_thema_citation_description" mongoField="ss_thema_citation_description"/>
-  <field column="ss_citation_text" name="ss_citation_text" mongoField="ss_citation_text"/>
-  <field column="ss_cck_field_site" name="ss_cck_field_site" mongoField="ss_cck_field_site"/>
-  <field column="ss_field_album_site" name="ss_field_album_site" mongoField="ss_field_album_site"/>
-  <field column="ss_field_album_song" name="ss_field_album_song" mongoField="ss_field_album_song"/>
-  <field column="ss_field_place_intro" name="ss_field_place_intro" mongoField="ss_field_place_intro"/>
-  <field column="ss_field_place_description" name="ss_field_place_description" mongoField="ss_field_place_description"/>
-  <field column="ss_field_place_site" name="ss_field_place_site" mongoField="ss_field_place_site"/>
-  <field column="ss_field_film_subtitle" name="ss_field_film_subtitle" mongoField="ss_field_film_subtitle"/>
-  <field column="sort_title" name="sort_title" mongoField="sort_title"/>
-  <field column="ss_film_text" name="ss_film_text" mongoField="ss_film_text"/>
- -->
- <!-- <field column="body_exact" name="body_exact" mongoField="body_exact"/>
-  <field column="teaser" name="teaser" mongoField="teaser"/>
-  <field column="entity" name="entity" mongoField="entity"/>
--->
-
-  <!--<field column="taxonomy_names" name="taxonomy_names" mongoField="taxonomy_names"/>
-  <field column="tags_h1" name="tags_h1" mongoField="tags_h1"/>
-  <field column="tags_h2_h3" name="tags_h2_h3" mongoField="tags_h2_h3"/>
-  <field column="tags_h4_h5_h6" name="tags_h4_h5_h6" mongoField="tags_h4_h5_h6"/>
-  <field column="tags_a" name="tags_a" mongoField="tags_a"/>
-  <field column="tags_inline" name="tags_inline" mongoField="tags_inline"/>
-  <field column="timestamp" name="timestamp" mongoField="timestamp"/>
-  <field column="spell" name="spell" mongoField="spell"/>
-  <field column="stitle" name="stitle" mongoField="stitle"/>
-  <field column="title_sort" name="title_sort" mongoField="title_sort"/>
-  <field column="name_sort" name="name_sort" mongoField="name_sort"/>
-  -->
  </document>
 </dataConfig>
