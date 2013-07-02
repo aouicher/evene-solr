@@ -119,7 +119,7 @@ SmartAdServer('42302/286773', '18318', '');           </script>
     <div class="evene-header-fluid-middle-inner">
         <div class="evene-logo">
 
-            <a href="/" class="evene-logo-link" title="Evene"><img
+            <a href="#domain_site" class="evene-logo-link" title="Evene"><img
                     src="http://www.evene.fr/sites/all/themes/evene/images/logos/logo-evene-nielsen.png" alt="Evene"
                     title="Evene"/></a></div>
         <div id="fig-navbar-container" class="fig-container">
@@ -161,7 +161,7 @@ SmartAdServer('42302/286773', '18318', '');           </script>
             <li
                     id="evene-nav-accueil-container" class="first over">
 
-                <a href="/" id="evene-nav-accueil" title="Accueil">accueil</a>
+                <a href="#url_for_home" id="evene-nav-accueil" title="Accueil">accueil</a>
 
                 <div class="shadow-r"></div>
                 <div class="shadow-l"></div>
@@ -475,26 +475,6 @@ SmartAdServer('42302/286773', '18318', '');           </script>
 
 
 <div class="block block-white">
-    <div class="pager">
-        <div class="item-list">
-            <ul class="pager">
-                <li class="pager-preview first"><span>‹ Précédent</span></li>
-                <li class="pager-next"><a href="/tout/victor-hugo/2" title="Aller à la page suivante" rel="next">Suivant
-                    ›</a></li>
-                <li class="pager-current"><span>1</span></li>
-                <li class="pager-item"><a href="/tout/victor-hugo/2" title="Aller à la page 2">2</a></li>
-                <li class="pager-item"><a href="/tout/victor-hugo/3" title="Aller à la page 3">3</a></li>
-                <li class="pager-item"><a href="/tout/victor-hugo/4" title="Aller à la page 4">4</a></li>
-                <li class="pager-item"><a href="/tout/victor-hugo/5" title="Aller à la page 5">5</a></li>
-                <li class="pager-item"><a href="/tout/victor-hugo/6" title="Aller à la page 6">6</a></li>
-                <li class="pager-item"><a href="/tout/victor-hugo/7" title="Aller à la page 7">7</a></li>
-                <li class="pager-item"><a href="/tout/victor-hugo/8" title="Aller à la page 8">8</a></li>
-                <li class="pager-item"><a href="/tout/victor-hugo/9" title="Aller à la page 9">9</a></li>
-                <li class="pager-item last"><a href="/tout/victor-hugo/10" title="Aller à la page 10">10</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
 </div>
 
 
@@ -1128,9 +1108,6 @@ SmartAdServer('42302/286773', '18318', '');           </script>
 </div>
 <div id="fb-root"></div>
 <script type="text/javascript">
-    <!--//-->
-    <![CDATA[//><!--
-
     window.fbAsyncInit = function () {
         FB.init({
             appId: '175108159196731',
@@ -1182,9 +1159,6 @@ SmartAdServer('42302/286773', '18318', '');           </script>
         e.async = true;
         document.getElementById('fb-root').appendChild(e);
     }());
-
-    //--><!
-    ]]>
 </script>
 <div style="display: none">
     <form action="/tout/victor%20hugo?destination=search%2Fapachesolr%2Fculture%2Fvictor+hugo" accept-charset="UTF-8"
