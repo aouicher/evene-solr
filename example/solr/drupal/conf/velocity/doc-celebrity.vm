@@ -88,11 +88,13 @@
 ##if(!$supportedtypes.contains($filetype))#set($filetype = "file")#end
 
 #if($doc.getFieldValue('picture'))
-#if($doc.getFieldValue('picture') == 'files/user_pictures/picture-1.png')
-#set($pictureLink = "#domain_site_static/sites/all/themes/evene/images/dummy/dummy-90-90.jpg")
-#else
+#if($doc.getFieldValue('picture')!="" && $doc.getFieldValue('picture')!="files/user_pictures/picture-1.png")
 #set($pictureLink = "#domain_site_static/img/celeb/"+$doc.getFieldValue('picture'))
+#else
+#set($pictureLink = "#domain_site_static/sites/all/themes/evene/images/dummy/dummy-90-90.jpg")
 #end
+#else
+#set($pictureLink = "#domain_site_static/sites/all/themes/evene/images/dummy/dummy-90-90.jpg")
 #end
 
 
