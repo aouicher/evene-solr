@@ -392,6 +392,118 @@
                         }
 
                     }
+
+                    if(row.get('field_gender') !== null)
+                    {
+                        var gender = JSON.parse(row.get('field_gender'))
+
+                        for(var i in gender)
+                        {
+                            if(gender[i] !== null)
+                            {
+                                if(gender[i].value !== null)
+                                {
+                                    row.put('gender_celebrity',gender[i].value);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_date_death') !== null)
+                    {
+                        var date_death = JSON.parse(row.get('field_date_death'))
+
+                        for(var i in date_death)
+                        {
+                            if(date_death[i] !== null)
+                            {
+                                if(date_death[i].value !== null && date_death[i].value !== "")
+                                {
+                                    var ddeath = null;
+                                    var ddeathFinal = null;
+                                    var d = date_death[i].value;
+
+                                    ddeath = d.replace("T"," ");
+                                    var format = "yyyy-MM-dd H:mm:ss";
+                                    var formater = new java.text.SimpleDateFormat( format );
+
+                                        try {
+                                            ddeathFinal = formater.parse( ddeath );
+
+                                            row.put('ds_celebrity_date_death',ddeathFinal);
+                                        } catch (e) {
+                                            print ('\r\n########### Erreur DATE DEATH (' + row.get('nid') + ')########### ' + date_death[i].value + ' => '+ ddeathFinal + '\r\n EURREUR : ' + e.toString() +' ############ FIN DATE ###########\r\n');
+                                        }
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_place_death') !== null)
+                    {
+                        var place_death = JSON.parse(row.get('field_place_death'))
+
+                        for(var i in place_death)
+                        {
+                            if(place_death[i] !== null)
+                            {
+                                if(place_death[i].value !== null)
+                                {
+                                     row.put('celebrity_place_death',place_death[i].value);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_place_birth') !== null)
+                    {
+                        var place_birth = JSON.parse(row.get('field_place_birth'))
+
+                        for(var i in place_birth)
+                        {
+                            if(place_birth[i] !== null)
+                            {
+                                if(place_birth[i].value !== null)
+                                {
+                                     row.put('celebrity_place_birth',place_birth[i].value);
+                                }
+                            }
+                        }
+                    }
+
+
+
+                    if(row.get('field_date_birth') !== null)
+                    {
+                        var date_birth = JSON.parse(row.get('field_date_birth'))
+
+                        for(var i in date_birth)
+                        {
+
+                            if(date_birth[i] !== null)
+                            {
+                                if(date_birth[i].value !== null  && date_birth[i].value !== "")
+                                {
+                                    var dbirth = null;
+                                    var dbirthFinal = null;
+                                    var db = date_birth[i].value;
+
+                                    dbirth = db.replace("T"," ");
+                                    var format = "yyyy-MM-dd H:mm:ss";
+                                    var formater = new java.text.SimpleDateFormat( format );
+
+                                    try {
+                                        dbirthFinal = formater.parse( dbirth );
+                                        row.put('ds_celebrity_date_birth',dbirthFinal);
+                                    } catch (e) {
+                                        print ('\r\n########### Erreur DATE BIRTH (' + row.get('nid') + ')########### ' + date_birth[i].value + ' => '+ dbirthFinal + '\r\n EURREUR : ' + e.toString() +' ############ FIN DATE ###########\r\n');
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
                  return row;
                 }
 
@@ -457,9 +569,80 @@
                     return row;
                 }
 
+                function citation(row)
+                {
+                    if(row.get('field_citation_source') !== null)
+                    {
+                        var cita_source = JSON.parse(row.get('field_citation_source'))
+
+                        for(var i in cita_source)
+                        {
+                            if(cita_source[i] !== null)
+                            {
+                                if(cita_source[i].value !== null)
+                                {
+                                    row.put('ss_field_citation_book',cita_source[i].value);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('title') !== null)
+                    {
+                        row.put('body',row.get('title'));
+                    }
+
+                    if(row.get('field_citation_celebrity') !== null)
+                    {
+                        var cita_celebrity = JSON.parse(row.get('field_citation_celebrity'))
+                        for(var i in cita_celebrity)
+                        {
+                            if(cita_celebrity[i] !== null)
+                            {
+                                if(cita_celebrity[i].nid !== null)
+                                {
+                                    row.put('field_citation_celebrity_nid',cita_celebrity[i].nid);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_citation_keywords') !== null)
+                    {
+                        var cita_keywords = JSON.parse(row.get('field_citation_keywords'))
+
+                        for(var i in cita_keywords)
+                        {
+                            if(cita_keywords[i] !== null)
+                            {
+                                if(cita_keywords[i].value !== null)
+                                {
+                                    row.put('ss_field_citation_keywords',cita_keywords[i].value);
+                                }
+                            }
+                        }
+                    }
+
+                    return row;
+                }
+
+                function citation_auteur(row)
+                {
+                    if(row.get('title') !== null)
+                    {
+                        row.put('ss_field_citation_celebrity',row.get('title'));
+                    }
+
+                    if(row.get('path') !== null)
+                    {
+                        row.put('ss_field_citation_celebrity_path',row.get('path'));
+                    }
+                    return row;
+                }
+
 
         ]]></script>
-<dataSource name="EveneMongo" type="MongoDataSource" database="evene"  port="37017" host="127.0.0.1"/>
+<dataSource name="EveneMongo" type="MongoDataSource" database="evene" host="127.0.0.1"/>
  <document name="node">
   <entity name="livre" processor="MongoEntityProcessor"
    query="{'status':1, 'type':'book'}"
@@ -542,9 +725,18 @@
           query="{'status':1, 'type':'citation'}"
           collection="node"
           datasource="EveneMongo"
-          transformer="script:general,HTMLStripTransformer">
+          transformer="script:general,HTMLStripTransformer, script:citation">
       <field column="_id" name="_id" mongoField="nid" />
       <field column="body" name="body" stripHTML="true" />
+      <entity name="citation_auteur"
+              processor="MongoEntityProcessor"
+              onError="continue"
+              query="{'nid': ${citation.field_citation_celebrity_nid} }"
+              collection="node"
+              datasource="EveneMongo"
+              transformer="script:citation_auteur">
+
+      </entity>
   </entity>
   <entity name="forum" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'forum'}"
