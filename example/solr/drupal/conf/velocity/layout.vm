@@ -4,30 +4,37 @@
       xml:lang="fr" lang="fr" dir="ltr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords"
-          content="victor hugo, evenement victor hugo, evenements victor hugo, concert victor hugo, exposition victor hugo, expo victor hugo, spectacle victor hugo, film victor hugo, dvd victor hugo, musique victor hugo, cd victor hugo, theatre victor hugo, piece victor hugo, scene victor hugo, livre victor hugo, livres victor hugo, art victor hugo, peinture victor hugo, sculpture victor hugo, roman victor hugo, dictionnaire victor hugo, encyclopedie victor hugo, lecture victor hugo, litterature victor hugo, poesie victor hugo, critique victor hugo, biographie victor hugo, bio victor hugo, auteur victor hugo, ecrivain victor hugo, celebrite victor hugo, people victor hugo, star victor hugo, acteur victor hugo, actrice victor hugo, personnalite victor hugo, musee victor hugo, infos victor hugo, news victor hugo, actualité victor hugo, photos victor hugo, videos victor hugo"/>
-    <meta name="description"
-          content="victor hugo - Découvrez le meilleur des événements culture, les livres sur victor hugo, les auteurs, artistes et célébrités associés à victor hugo, les lieux victor hugo, musée victor hugo, cinéma victor hugo, film victor hugo, dvd victor hugo, cd victor hugo, expo victor hugo, pièce de theatre victor hugo, cadeaux victor hugo, forum victor hugo."/>
+    #parse('meta.vm')
 
-      <script type="text/javascript" src="#{url_root}/js/lib/jquery-1.7.2.min.js"></script>
-      <link rel="stylesheet" href="#{url_for_solr}/admin/file?file=/velocity/jquery.autocomplete.css&contentType=text/css" type="text/css" />
-      <script type="text/javascript" src="#{url_for_solr}/admin/file?file=/velocity/jquery.autocomplete.js&contentType=text/javascript"></script>
-       <script type="text/javascript" src="#{url_for_solr}/admin/file?file=/velocity/pub.js&contentType=text/javascript"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <link rel="stylesheet" href="#{url_for_solr_admin}/admin/file?file=/velocity/jquery.autocomplete.css&contentType=text/css" type="text/css" />
+    <script type="text/javascript" src="#{url_for_solr_admin}/admin/file?file=/velocity/jquery.autocomplete.js&contentType=text/javascript"></script>
+    <script type="text/javascript" src="#{url_for_solr_admin}/admin/file?file=/velocity/pub.js&contentType=text/javascript"></script>
 
 
         <script>
         $(document).ready(function(){
-          $("\#q").autocomplete('#{url_for_solr}/terms', {  ## backslash escaped #q as that is a macro defined in VM_global_library.vm
+          $("#query-form").submit(function() {
+             console.log('on change la URL');
+             var valQuery = $("\#q").val();
+             valQuery = valQuery.replace(" ","-");
+             $("#query-form").attr("action","#{url_for_home}" + valQuery );
+            }
+          );
+
+          $("\#q").autocomplete('#{url_for_solr_admin}/drupal/terms', {  ## backslash escaped #q as that is a macro defined in VM_global_library.vm
                extraParams:{
                  'terms.prefix': function() { return $("\#q").val();},
                  'terms.sort': 'count',
                  'terms.fl': 'title',
                  'wt': 'velocity',
                  'v.template': 'suggest'
-               }
+               },
+
              }
           ).keydown(function(e){
             if (e.keyCode === 13){
+
               $("#query-form").trigger('submit');
             }
           });
