@@ -1,2 +1,7 @@
+example/logs/solr.log*
+example/logs
 example/solr/drupal/data
+example/solr/drupal/.idea
+example/solr/drupal/conf/dataimport.properties
 example/solr/collection1
+example/velocity.*

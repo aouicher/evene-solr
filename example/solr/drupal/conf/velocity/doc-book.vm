@@ -144,7 +144,7 @@
     <div class="node node-$doc.getFieldValue('nid')">
       <div class="block-cdc">
         <div class="img">
-          <span class="unteflutche" onclick='EveneSite.unteflutche("$doc.getFieldValue('path_mask')"); return false;'><img src="$pictureLink" class="evene_images imagecache evene_images-evene_image-livre-grande imagecache-evene_image-livre-grande evene_images- imagecache- evene_images-evene_image-livre-grande_default imagecache-evene_image-livre-grande_default " width="108" height="162" alt="Cat-walk"></span>    </div>
+          <span class="unteflutche" onclick='EveneSite.unteflutche("#crypturl($doc.getFieldValue('path'))"); return false;'><img src="$pictureLink" class="evene_images imagecache evene_images-evene_image-livre-grande imagecache-evene_image-livre-grande evene_images- imagecache- evene_images-evene_image-livre-grande_default imagecache-evene_image-livre-grande_default " width="108" height="162" alt="Cat-walk"></span>    </div>
         <div class="txt">
 
                   <h4>#if($doc.getFieldValue('taxonomy_path'))<a href="#domain_site/$doc.getFieldValue('taxonomy_path')">#end#field('taxonomy_names')#if($doc.getFieldValue('taxonomy_path'))</a>#end</h4>
@@ -210,9 +210,8 @@
         </div>
         <div class="enddiv"></div>
       </div>
-        <div class="block-votes
-                ">
-                            <ul class="ui-content flag-wrapper favorite-block-$doc.getFieldValue('nid') long">
+        <div class="block-votes">
+          <ul class="ui-content flag-wrapper favorite-block-$doc.getFieldValue('nid') long">
           <li class="first last">
             <div class="tooltip-info">
               <h4>«&nbsp;#field('title')&nbsp;»</h4>
@@ -234,8 +233,7 @@
           </li>
         </ul>
         #parse('share.vm')
-
-                <div class="enddiv"></div>
+        <div class="enddiv"></div>
       </div>
     </div>
                     </div>
