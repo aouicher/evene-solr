@@ -155,7 +155,6 @@
         -->
     <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
       <analyzer type="index">
-          <charFilter class="solr.HTMLStripCharFilterFactory"/>
         <filter class="solr.ASCIIFoldingFilterFactory" />
         <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
         <tokenizer class="solr.WhitespaceTokenizerFactory"/>
@@ -185,12 +184,9 @@
         <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
       </analyzer>
       <analyzer type="query">
-          <charFilter class="solr.HTMLStripCharFilterFactory"/>
         <filter class="solr.ASCIIFoldingFilterFactory" />
         <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
-
         <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-        <charFilter class="solr.HTMLStripCharFilterFactory"/>
         <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
         <filter class="solr.StopFilterFactory"
                 ignoreCase="true"
@@ -385,6 +381,10 @@
    <field name="book_author_content_celebrity" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="book_author_content_celebrity_path" type="string" indexed="true" stored="true" termVectors="true"/>
    <field name="ds_book_publication_timestamp" type="tdate" indexed="true" stored="true"/>
+   <field name="ds_celebrity_date_birth" type="tdate" indexed="true" stored="true"/>
+   <field name="ds_celebrity_date_death" type="tdate" indexed="true" stored="true"/>
+   <field name="celebrity_place_death" type="string" indexed="true" stored="true"/>
+   <field name="celebrity_place_birth" type="string" indexed="true" stored="true"/>
    <field name="ss_event_place" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_event_category" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_film_category" type="text" indexed="true" stored="true" termVectors="true" omitNorms="true"/>
@@ -398,12 +398,14 @@
    <field name="ss_field_event_info" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_field_event_site" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_field_citation_celebrity" type="text" indexed="true" stored="true" termVectors="true"/>
+   <field name="ss_field_citation_celebrity_path" type="text" indexed="true" stored="true" termVectors="true"/>
+   <field name="ss_field_citation_keywords" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_field_citation_book" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_field_citation_comment" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_field_citation_thema" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_field_content_celebrity" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_field_place_region" type="text" indexed="true" stored="true" termVectors="true"/>
-
+   <field name="gender_celebrity" type="string" indexed="true" stored="true"/>
    <field name="ss_citation_source" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="ss_citation_author_content_celebrity" type="text" indexed="true" stored="true" termVectors="true" termPositions="true" termOffsets="true"/>
    <!-- content part of each type, with single boost weight -->
