@@ -18,8 +18,100 @@ Pour mettre en place evene search v2
 </solr>
 
 -> Paramètre d'insertion des données :
-
 Tout est défini dans /opt/local/share/java/solr-4.3.0/example/solr/drupal/conf/data-config.xml
+
+-> Conf Nginx :
+
+nginx.conf :
+
+http {
+
+# ajout pour moteur
+perl_set $dash_solr_agenda_uri '
+        sub {
+        my ($r) = @_;
+        my ($url) = $r->uri;
+        my ($arg) = $r->args;
+        $url =~ s/-/+/g;
+        $url =~ s/\/agenda\///g;
+        return $url;
+        }
+        ';
+perl_set $dash_solr_uri '
+        sub {
+        my ($r) = @_;
+        my ($url) = $r->uri;
+        my ($arg) = $r->args;
+        $url =~ s/-/+/g;
+        $url =~ s/\/tout\///g;
+        return $url;
+        }
+        ';
+# fin ajout pour moteur
+
+evene.conf :
+
+location /citations/mot.php {
+          proxy_pass http://127.0.0.1:8983/solr/drupal/citations;
+          proxy_set_header   URI             $uri;
+          proxy_set_header   Host             $host;
+          proxy_set_header   X-Real-IP        $remote_addr;
+          proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+          if ($args ~ "mot=(.*)") {
+                set $q $1;
+          }
+          rewrite ^/citations/mot.php "/solr/drupal/citations?q=$q&fq=type:citation&$args" break;
+        }
+        location /tout {
+             set $price "";
+             proxy_pass http://127.0.0.1:8983/solr/drupal/tout;
+             proxy_set_header   Host             $host;
+             proxy_set_header   X-Real-IP        $remote_addr;
+             proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+             if ($args ~ "q=([^&])&(.+)") {
+                set $a $1;
+                rewrite ^/tout "/tout/$a&$2" break;
+             }
+             if ($args ~ "price=([0-9]+)-([0-9]+)") {
+             set $price "+sess_event_price:[$1%20TO%20$2]";
+             }
+
+
+             if ($uri ~ "/tout/(.*)") {
+               set $query "$dash_solr_uri$price";
+               set $q $1;
+               rewrite ^/tout "/solr/drupal/tout?q=$query&$args?" break;
+             }
+        }
+
+        location /agenda {
+             set $price "";
+             proxy_pass http://127.0.0.1:8983/solr/drupal/agenda;
+             proxy_set_header   Host             $host;
+             proxy_set_header   X-Real-IP        $remote_addr;
+             proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+             if ($args ~ "q=([^&])&(.+)") {
+                set $a $1;
+                rewrite ^/agenda "/agenda/$a&$2" break;
+             }
+             if ($args ~ "price=([0-9]+)-([0-9]+)") {
+             set $price "+sess_event_price:[$1%20TO%20$2]";
+             }
+
+
+             if ($uri ~ "/agenda/(.*)") {
+               set $query "$dash_solr_agenda_uri$price";
+               set $q $1;
+               rewrite ^/agenda "/solr/drupal/agenda?q=$query&$args?" break;
+             }
+        }
+
+        location /solr {
+             proxy_pass http://127.0.0.1:8983/solr;
+             proxy_set_header   Host             $host;
+             proxy_set_header   X-Real-IP        $remote_addr;
+             proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+        }
 
 
 
