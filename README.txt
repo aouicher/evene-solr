@@ -1,3 +1,32 @@
+# README POUR EVENE
+
+Pour mettre en place evene search v2
+
+# requis :
+-> SOLR 4.3.0
+-> Mongo Importer (https://github.com/james75/SolrMongoImporter)
+-> Mongo pour Java (https://github.com/james75/SolrMongoImporter/downloads)
+
+-> Placer le ficher conf : /opt/local/share/java/solr-4.3.0/example/solr/drupal/conf/solrconfig.xml
+-> Mettre /opt/local/share/java/solr-4.3.0/contrib/velocity/lib/evene-solr-velocity-1.0.1.jar (compilé avec https://github.com/aouicher/evene-solr-velocity)
+-> Ajouter un nouveau coeur dans avec /opt/local/share/java/solr-4.3.0/example/solr/solr.xml :
+<?xml version="1.0" encoding="UTF-8" ?>
+<solr persistent="true">
+  <cores defaultCoreName="drupal" host="${host:}" adminPath="/admin/cores" zkClientTimeout="${zkClientTimeout:15000}" hostPort="${jetty.port:8983}" hostContext="${hostContext:solr}">
+    <core loadOnStartup="true" instanceDir="drupal/" transient="false" name="drupal" collection="drupal"/>
+  </cores>
+</solr>
+
+-> Paramètre d'insertion des données :
+
+Tout est défini dans /opt/local/share/java/solr-4.3.0/example/solr/drupal/conf/data-config.xml
+
+
+
+# FIN README EVENE
+
+
+
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
 # this work for additional information regarding copyright ownership.
