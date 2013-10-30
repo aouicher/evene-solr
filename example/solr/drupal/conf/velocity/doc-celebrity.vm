@@ -91,10 +91,10 @@
 #if($doc.getFieldValue('picture')!="" && $doc.getFieldValue('picture')!="files/user_pictures/picture-1.png")
 #set($pictureLink = "#domain_site_static/img/celeb/"+$doc.getFieldValue('picture'))
 #else
-#set($pictureLink = "#domain_site_static/sites/all/themes/evene/images/dummy/dummy-90-90.jpg")
+#set($pictureLink = "")
 #end
 #else
-#set($pictureLink = "#domain_site_static/sites/all/themes/evene/images/dummy/dummy-90-90.jpg")
+#set($pictureLink = "")
 #end
 
 
@@ -140,22 +140,55 @@
 -->
 
 #parse('debug.vm')
+
+
 <div class="block-aller-plus">
 <div class="category">célébrité</div>
     <div class="node node-43599">
         <ul class="ui-content people-ui">
             <li class="first last">
+                #if($pictureLink != "")
                 <div class="img">
-                    <span class="unteflutche" onclick="EveneSite.unteflutche(&quot;#Z:Z3J=Yr7:=-Y?8szM0s:Zo-rYspM0-p0y08/&quot;); return false;"><img src="$pictureLink" class="evene_images imagecache evene_images-evene_image-celebrity imagecache-evene_image-celebrity evene_images- imagecache- evene_images-evene_image-celebrity_default imagecache-evene_image-celebrity_default " width="90" height="90" alt="$title"></span>        </div>
+                    <span class="unteflutche" onclick='EveneSite.unteflutche("#crypturl("#domain_site/${path}")"); return false;'><img src="$pictureLink" class="evene_images imagecache evene_images-evene_image-celebrity imagecache-evene_image-celebrity evene_images- imagecache- evene_images-evene_image-celebrity_default imagecache-evene_image-celebrity_default " width="90" height="90" alt="$title"></span>        </div>
+                #end
                 <div class="txt">
-                    <h3><a href="#domain_site/${path}"><span class="filter-text">$title</span></a>                  <a href="#" class="filter-text-plus">[+]</a>
+                    <h3><a href="#domain_site/${path}">#field('title')</a>                  <a href="#tout($doc.getFieldValue('title'))" class="filter-text-plus">[+]</a>
                     </h3>
-                    <div class="location">$doc.getFieldValue('ss_celebrity_info')                         <a href="/tout/ecrivain-et-poete-francais" class="filter-text-plus">[+]</a>
+                    #if($doc.getFieldValue('ss_celebrity_info'))
+                    <div class="location">#field('ss_celebrity_info')<a href="#tout($doc.getFieldValue('ss_celebrity_info'))" class="filter-text-plus">[+]</a></div>
+                    #end
 
-                    </div>
+                  #if($doc.getFieldValue('ds_celebrity_date_birth') || $doc.getFieldValue('celebrity_place_birth'))
+                  #if($doc.getFieldValue('gender_celebrity')=="2.0")
+                  <span class="txt">Née #if($doc.getFieldValue('celebrity_place_birth'))à #field('celebrity_place_birth') #end
+                    #if($doc.getFieldValue('ds_celebrity_date_birth'))
+                    le #medium_date($doc.getFieldValue('ds_celebrity_date_birth'))
+                    #end
+                  </span>
+                  #elseif($doc.getFieldValue('gender_celebrity')=="1.0")
+                  <span class="txt">Né #if($doc.getFieldValue('celebrity_place_birth'))à #field('celebrity_place_birth') #end
+                   #if($doc.getFieldValue('ds_celebrity_date_birth'))
+                   le #medium_date($doc.getFieldValue('ds_celebrity_date_birth'))
+                   #end
+                  </span>
+                  #end
+                  #end
 
-                  <span class="txt">
-            Né à Besançon           </span>
+                  #if($doc.getFieldValue('ds_celebrity_date_death') || $doc.getFieldValue('celebrity_place_death'))
+                  #if($doc.getFieldValue('gender_celebrity')=="2.0")
+                  <span class="txt">Décédée #if($doc.getFieldValue('celebrity_place_death'))à #field('celebrity_place_death') #end
+                    #if($doc.getFieldValue('ds_celebrity_date_death'))
+                    le #medium_date($doc.getFieldValue('ds_celebrity_date_death'))
+                    #end
+                  </span>
+                  #elseif($doc.getFieldValue('gender_celebrity')=="1.0")
+                  <span class="txt">Décédé #if($doc.getFieldValue('celebrity_place_death'))à #field('celebrity_place_death') #end
+                   #if($doc.getFieldValue('ds_celebrity_date_death'))
+                   le #medium_date($doc.getFieldValue('ds_celebrity_date_death'))
+                   #end
+                  </span>
+                  #end
+                  #end
 
 
                     <p>#field('body') </p>

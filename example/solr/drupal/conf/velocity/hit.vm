@@ -13,6 +13,10 @@
   #parse("doc-celebrity.vm")
 #elseif($doc.getFieldValue('type')=='article' || $doc.getFieldValue('type')=='dossier')
   #parse("doc-article.vm")
+#elseif($doc.getFieldValue('type')=='citation')
+  #parse("doc-citation.vm")
+#elseif($doc.getFieldValue('type')=='thema')
+    #parse("doc-thema.vm")
 #else
   #parse("richtext-doc.vm")
 #end

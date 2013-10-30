@@ -1,16 +1,21 @@
-#macro(domain_site)http://www.evene.fr#end
+#macro(domain_site)http://evene.dev:81#end
 #macro(domain_site_static)http://static.evene.fr#end
-#macro(url_root)/solr#end
+##macro(url_root)/solr#end
+#macro(url_root)#domain_site#end
 #macro(param $key)$request.params.get($key)#end
-
-#macro(url_root)/solr#end
+#macro(schema_url_autolink_citation)/tout/#end
+##macro(url_root)/#end
 
 ## TODO: s/url_for_solr/url_for_core/ and s/url_root/url_for_solr/
 #macro(core_name)$request.core.name#end
-#macro(url_for_solr)#{url_root}#if($request.core.name != "")/$request.core.name#end#end
-#macro(url_for_home)#url_for_solr/tout#end
 
-#macro(q)&q=$!{esc.url($params.get('q'))}#end
+##macro(url_for_solr)#{url_root}#if($request.core.name != "")/$request.core.name#end#end
+#macro(url_for_solr)#{url_root}#end
+#macro(url_for_solr_admin)#url_root/solr#end
+#macro(url_for_home)#url_for_solr#if($request.params.get('v.template')=='browse_agenda')/agenda/#else/tout/#end#end
+
+#macro(q)$!{esc.url($params.get('q'))}?#end
+
 
 #macro(fqs $p)#foreach($fq in $p)#if($velocityCount>1)&#{end}fq=$esc.url($fq)#end#end
 
@@ -30,15 +35,19 @@
 
 #macro(sort $p)#if($p)#foreach($s in $p)&sort=$esc.url($s)#end#end#end
 
-#macro(lensNoQ)?#if($request.params.getParams('fq') and $list.size($request.params.getParams('fq')) > 0)&#fqs($request.params.getParams('fq'))#end#sort($request.params.getParams('sort'))#debug#boostPrice#annotate#spatial#qOpts#group#end
+##macro(lensNoQ)?#if($request.params.getParams('fq') and $list.size($request.params.getParams('fq')) > 0)&#fqs($request.params.getParams('fq'))#end#sort($request.params.getParams('sort'))#debug#boostPrice#annotate#spatial#qOpts#group#end
+
+#macro(lensNoQ)#if($request.params.getParams('fq') and $list.size($request.params.getParams('fq')) > 0)?#fqs($request.params.getParams('fq'))#end#sort($request.params.getParams('sort'))#debug#boostPrice#annotate#spatial#qOpts#group#end
 #macro(lens)#lensNoQ#q#end
 
+##macro(tout $title)#url_for_home?q=#cleanstring($title)#end
+#macro(tout $title)#url_for_home#cleanstring($title)#end
 
 #macro(url_for_lens)#{url_for_home}#lens#end
 
 #macro(url_for_start $start)#url_for_home#lens&start=$start#end
 
-#macro(url_for_filters $p)#url_for_home?#q#boostPrice#spatial#qOpts#if($list.size($p) > 0)&#fqs($p)#end#debug#end
+#macro(url_for_filters $p)#url_for_home#q?#boostPrice#spatial#qOpts#if($list.size($p) > 0)&#fqs($p)#end#debug#end
 
 #macro(url_for_nested_facet_query $field)#url_for_home#lens&fq=$esc.url($field)#end
 
@@ -53,14 +62,14 @@
 #macro(link_to_previous_page $text)
   #if($page.current_page_number > 1)
     #set($prev_start = $page.start - $page.results_per_page)
-    <a class="prev-page" href="#url_for_start($prev_start)">$text</a>
+    <li class="pager-preview first"><a class="prev-page" href="#url_for_start($prev_start)">$text</a></li>
   #end
 #end
 
 #macro(link_to_next_page $text)
   #if($page.current_page_number < $page.page_count)
     #set($next_start = $page.start + $page.results_per_page)
-    <a class="next-page" href="#url_for_start($next_start)">$text</a>
+    <li class="pager-next"> <a class="next-page" href="#url_for_start($next_start)">$text</a></li>
   #end
 #end
 
@@ -148,14 +157,14 @@ $pad$v... ##
     #truncate($v 350)
     #end
   #end
-#end  
+#end
 
 #macro(utc_date $theDate)
 $date.format("yyyy-MM-dd'T'HH:mm:ss'Z'",$theDate,$date.getLocale(),$date.getTimeZone().getTimeZone("UTC"))##
 #end
 
 #macro(medium_date $theDate)
-$date.format("dd MM yyyy",$theDate,$date.getLocale(),$date.getTimeZone().getTimeZone("UTC"))##
+$date.format("dd MMM yyyy",$theDate,$date.getLocale(),$date.getTimeZone().getTimeZone("UTC"))
 #end
 
 #macro(format_value $val)

@@ -2,98 +2,7 @@
 <dataConfig>
     <script><![CDATA[
 
-                var EVENE_DOMAIN = "http://www.evene.fr/";
-
-               function encodeUrl(encoded_url) {
-                    var url = getRealUrl(encoded_url);
-                    url = strrev(url);
-                    return url;
-               }
-
-               function evene_site_mask_url(url) {
-                    var maskInput = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890:.-/?&%+_=#(),@[]{};^~$';
-                    var maskOutput = 'op8#0qr:stxyEFYZ.-/?7zaR)ST9UV_WXbcdeuvwfghijkl&456mnG+HIJKL%123=MNOPQA(BCD,@[]{};^~$';
-
-                    // First reverse the string.
-                    var reverse_url = strrev(url);
-                    return '#' + strtr(reverse_url, maskInput, maskOutput);
-               }
-
-               function strtr(str, from, to) {
-                    // "strtr" adapté depuis : http://kevin.vanzonneveld.net
-                    var fr = '',
-                        i = 0,
-                        j = 0,
-                        lenStr = 0,
-                        lenFrom = 0,
-                        tmpStrictForIn = false,
-                        fromTypeStr = '',
-                        toTypeStr = '',
-                        istr = '';
-                    var tmpFrom = [];
-                    var tmpTo = [];
-                    var ret = '';
-                    var match = false;
-
-                    // Received replace_pairs?
-                    // Convert to normal from->to chars
-                    if (typeof from === 'object') {
-                        tmpStrictForIn = this.ini_set('phpjs.strictForIn', false); // Not thread-safe; temporarily set to true
-                        from = this.krsort(from);
-                        this.ini_set('phpjs.strictForIn', tmpStrictForIn);
-
-                        for (fr in from) {
-                            if (from.hasOwnProperty(fr)) {
-                                tmpFrom.push(fr);
-                                tmpTo.push(from[fr]);
-                            }
-                        }
-
-                        from = tmpFrom;
-                        to = tmpTo;
-                    }
-
-                    // Walk through subject and replace chars when needed
-                    lenStr = str.length;
-                    lenFrom = from.length;
-                    fromTypeStr = typeof from === 'string';
-                    toTypeStr = typeof to === 'string';
-
-                    for (i = 0; i < lenStr; i++) {
-                        match = false;
-                        if (fromTypeStr) {
-                            istr = str.charAt(i);
-                            for (j = 0; j < lenFrom; j++) {
-                                if (istr == from.charAt(j)) {
-                                    match = true;
-                                    break;
-                                }
-                            }
-                        } else {
-                            for (j = 0; j < lenFrom; j++) {
-                                if (str.substr(i, from[j].length) == from[j]) {
-                                    match = true;
-                                    // Fast forward
-                                    i = (i + from[j].length) - 1;
-                                    break;
-                                }
-                            }
-                        }
-                        if (match) {
-                            ret += toTypeStr ? to.charAt(j) : to[j];
-                        } else {
-                            ret += str.charAt(i);
-                        }
-                    }
-
-                    return ret;
-               }
-
-               function strrev(str) {
-                    return str.split('').reverse().join('');
-               }
-
-               function first(obj) {
+                function first(obj) {
                     return obj[Object.keys(obj)[0]];
                 }
 
@@ -185,7 +94,7 @@
                             {
                                 if(fnac[i].url !== null)
                                 {
-                                    //row.put('fnac_url',evene_site_mask_url(fnac[i].url));
+                                    row.put('fnac_url',fnac[i].url);
                                 }
                             }
                         }
@@ -640,9 +549,199 @@
                     return row;
                 }
 
+                function evenement(row)
+                {
+
+                    if(row.get('field_event_dates') !== null)
+                    {
+                        var event_dates = JSON.parse(row.get('field_event_dates'));
+                        for(var i in event_dates)
+                        {
+                            if(event_dates[i] !== null)
+                            {
+                                if(event_dates[i].value !== null)
+                                {
+                                    row.put('ds_event_date_start',event_dates[i].value);
+                                }
+
+                                if(event_dates[i].value2 !== null)
+                                {
+                                    row.put('ds_event_date_end',event_dates[i].value2);
+                                }
+                            }
+                        }
+                    }
+
+
+                    if(row.get('field_event_session') !== null)
+                    {
+                        var event_sessions = JSON.parse(row.get('field_event_session'));
+                        var arr = new java.util.ArrayList();
+                        for(var i in event_sessions)
+                        {
+                            if(event_sessions[i] !== null)
+                            {
+                                if(event_sessions[i].nid !== null)
+                                {
+                                    arr.add(event_sessions[i].nid);
+                                    print('\r\nScript EVENT('+event_sessions[i].nid+')########');
+                                }
+                            }
+                        }
+                        row.put('event_session_nid',arr);
+
+                    }
+                    return row;
+                }
+
+                function evenement_session(row)
+                {
+                    print('\r\nScript SESSION ######## +row');
+                    if(row.get('field_price') !== null)
+                    {
+                        var session_price = JSON.parse(row.get('field_price'));
+                        for(var i in session_price)
+                        {
+                            if(session_price[i] !== null)
+                            {
+                                if(session_price[i].value !== null)
+                                {
+                                    var price = session_price[i].value;
+                                    price = parseFloat(price);
+                                    row.put('sess_event_price',price);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_session_event') !== null)
+                    {
+                        var field_session_event = JSON.parse(row.get('field_session_event'));
+                        for(var i in field_session_event)
+                        {
+                            if(field_session_event[i] !== null)
+                            {
+                                if(field_session_event[i].nid !== null)
+                                {
+                                    row.put('sess_field_session_event',field_session_event[i].nid);
+                                }
+                            }
+                        }
+                    }
+
+
+                    if(row.get('field_session_place') !== null)
+                    {
+                        var session_place = JSON.parse(row.get('field_session_place'));
+
+                        for(var i in session_place)
+                        {
+                            if(session_place[i] !== null)
+                            {
+                                if(session_place[i].nid !== null)
+                                {
+                                   row.put('session_place_nid',session_place[i].nid);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_session_date') !== null)
+                    {
+                        var session_date = JSON.parse(row.get('field_session_date'));
+                        for(var i in session_price)
+                        {
+                            if(session_date[i] !== null)
+                            {
+                                if(session_date[i].value !== null)
+                                {
+                                    row.put('sess_ds_date',session_date[i].value);
+                                }
+                            }
+                        }
+                    }
+                    return row;
+                }
+
+                function evenement_session_place(row)
+                {
+                    print('\r\nScript PLACE ########');
+                    if(row.get('field_adress') !== null)
+                    {
+                        var place_adress = JSON.parse(row.get('field_adress'));
+                        for(var i in place_adress)
+                        {
+                            if(place_adress[i] !== null)
+                            {
+                                if(place_adress[i].value !== null)
+                                {
+                                    row.put('sess_ss_event_adress',place_adress[i].value);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_geo') !== null)
+                    {
+                        var place_geo = JSON.parse(row.get('field_geo'));
+                        for(var i in place_geo)
+                        {
+                            if(place_geo[i] !== null)
+                            {
+                                if(place_geo[i].value !== null)
+                                {
+                                    row.put('sess_ss_event_geo',place_geo[i].value);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_place_ville') !== null)
+                    {
+                        var place_ville = JSON.parse(row.get('field_place_ville'));
+                        for(var i in place_ville)
+                        {
+                            if(place_ville[i] !== null)
+                            {
+                                if(place_ville[i].value !== null)
+                                {
+                                    row.put('sess_ss_event_ville',place_ville[i].value);
+                                }
+                            }
+                        }
+                    }
+
+                    if(row.get('field_zip_code') !== null)
+                    {
+                        var place_cp = JSON.parse(row.get('field_zip_code'));
+                        for(var i in place_cp)
+                        {
+                            if(place_cp[i] !== null)
+                            {
+                                if(place_cp[i].value !== null)
+                                {
+                                    row.put('sess_ss_event_cp',place_cp[i].value);
+                                }
+                            }
+                        }
+                    }
+
+                    return row;
+                }
+
+                function evenement_session_node(row)
+                {
+
+                    if(row.get('title') !== null)
+                    {
+                        row.put('title_event',row.get('title'));
+                    }
+                    return row;
+                }
+
 
         ]]></script>
-<dataSource name="EveneMongo" type="MongoDataSource" database="evene" host="127.0.0.1"/>
+<dataSource name="EveneMongo" type="MongoDataSource" database="evene" host="127.0.0.1" port="27027"/>
  <document name="node">
   <entity name="livre" processor="MongoEntityProcessor"
    query="{'status':1, 'type':'book'}"
@@ -689,6 +788,7 @@
       <field column="_id" name="_id" mongoField="nid" />
       <field column="body" name="body" stripHTML="true" />
   </entity>
+
   <entity name="article" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'article'}"
           collection="node"
@@ -697,22 +797,64 @@
       <field column="_id" name="_id" mongoField="nid" />
       <field column="body" name="body" stripHTML="true" />
   </entity>
-  <entity name="event" processor="MongoEntityProcessor"
+
+  <entity name="evenement" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'event'}"
           collection="node"
           datasource="EveneMongo"
-          transformer="script:general,HTMLStripTransformer">
+          transformer="script:general,HTMLStripTransformer,script:evenement">
+      <entity name="evenement_session" processor="MongoEntityProcessor"
+              onError="continue"
+              query="{'nid':${evenement.event_session_nid}}"
+              collection="node"
+              datasource="EveneMongo"
+              transformer="script:evenement_session">
+          <entity name="evenement_session_place" processor="MongoEntityProcessor"
+                  onError="continue"
+                  query="{'nid':${evenement_session.session_place_nid}}"
+                  collection="node"
+                  datasource="EveneMongo"
+                  transformer="script:evenement_session_place">
+          </entity>
+      </entity>
       <field column="_id" name="_id" mongoField="nid" />
       <field column="body" name="body" stripHTML="true" />
   </entity>
+
   <entity name="film" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'film'}"
           collection="node"
           datasource="EveneMongo"
-          transformer="script:general,HTMLStripTransformer">
+          transformer="script:evenement,script:general,HTMLStripTransformer">
+      <field column="_id" name="_id" mongoField="nid" />
+
+  </entity>
+  <entity name="sess" processor="MongoEntityProcessor"
+             onError="continue"
+             query="{'type':'session'}"
+             collection="node"
+             datasource="EveneMongo"
+             transformer="script:evenement_session">
+
+      <entity name="evenement_session_node" processor="MongoEntityProcessor"
+              onError="continue"
+              query="{'nid':${sess.sess_field_session_event}}"
+              collection="node"
+              datasource="EveneMongo"
+              transformer="script:evenement_session_node">
+      </entity>
+      <entity name="evenement_session_place" processor="MongoEntityProcessor"
+                 onError="continue"
+                 query="{'nid':${sess.session_place_nid}}"
+                 collection="node"
+                 datasource="EveneMongo"
+                 transformer="script:evenement_session_place">
+      </entity>
+
       <field column="_id" name="_id" mongoField="nid" />
       <field column="body" name="body" stripHTML="true" />
   </entity>
+
   <entity name="lieu" processor="MongoEntityProcessor"
           query="{'status':1, 'type':'place'}"
           collection="node"

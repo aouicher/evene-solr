@@ -423,8 +423,22 @@
    <field name="ss_field_film_subtitle" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="sort_title" type="sortString" indexed="true" stored="false"/>
 
+     <field name="ds_event_date_start" type="text" indexed="true" stored="true" termVectors="true"/>
+     <field name="ds_event_date_end" type="text" indexed="true" stored="true" termVectors="true"/>
+     <field name="sess_event_price" type="float" indexed="true" stored="true" multiValued="true"/>
+     <field name="sess_ds_date" type="text" indexed="true" stored="true" multiValued="true"/>
+     <field name="sess_ss_event_adress" type="text" indexed="true" stored="true"  multiValued="true"/>
+     <field name="sess_ss_event_geo" type="text" indexed="true" stored="true"  multiValued="true"/>
+     <field name="sess_ss_event_ville" type="text" indexed="true" stored="true"  multiValued="true"/>
+     <field name="sess_ss_event_cp" type="text" indexed="true" stored="true"  multiValued="true"/>
+     <field name="event_session_nid" type="integer" indexed="true" stored="true"  multiValued="true"/>
+     <field name="session_place_nid" type="integer" indexed="true" stored="true"  multiValued="true"/>
+     <field name="sess_field_session_event" type="integer" indexed="true" stored="true"/>
+
+
    <field name="ss_film_text" type="text" stored="true" indexed="true" termVectors="true"/>
    <field name="body" type="text" indexed="true" stored="true" termVectors="true"/>
+   <field name="title_event" type="text" indexed="true" stored="true" termVectors="true"/>
    <field name="body_exact" type="text_exact" indexed="true" stored="true"/>
    <field name="teaser" type="text" indexed="false" stored="true"/>
    <!-- entity is 'node', 'file', 'user', or some other Drupal object type -->

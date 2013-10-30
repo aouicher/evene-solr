@@ -3,7 +3,7 @@
 #set($clusters = $response.response.clusters)
 #set($mltResults = $response.response.get("moreLikeThis"))
 #set($annotate = $params.get("annotateBrowse"))
-#parse('query.vm')
+#parse('query-agenda.vm')
 #parse('did_you_mean.vm')
 
 <div class="navigators">
@@ -41,7 +41,7 @@
 <div class="pager">
         <div class="item-list">
             <ul class="pager">
-                #link_to_previous_page("précédent")
+                <li class="pager-preview first">#link_to_previous_page("précédent")</li>
                 <li class="pager-next"> #link_to_next_page("suivant")</li>
                 <li class="pager-item">$page.results_found resultats trouvés.
                                         Page $page.current_page_number sur $page.page_count</li>

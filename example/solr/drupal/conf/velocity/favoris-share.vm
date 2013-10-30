@@ -1,0 +1,26 @@
+        <div class="block-votes
+            ">
+                        <ul class="ui-content flag-wrapper favorite-block-$doc.getFieldValue('nid') long">
+      <li class="first last">
+        <div class="tooltip-info">
+          <h4>«&nbsp;$doc.getFieldValue('title')&nbsp;»</h4>
+          <p>Soyez le premier à ajouter cette citation à vos favoris</p>
+          <a class="flag flag-action flag-link-toggle unflagged link tooltip-flag flag-processed" href="/flag/flag/bookmarks/$doc.getFieldValue('nid')/long?token=4d8fa0c27be7dc3fd971639659cfe435" rel="nofollow">
+            Ajouter à mes favoris          </a>
+          <div class="enddiv"></div><div class="bottom-info">
+            <span class="info-text">
+              Votre espace personnel sur Evene.fr vous permet de découvrir du contenu culturel qui
+               vous correspond. L'espace personnel, c'est un moteur de recommandations selon vos goûts.              <b><a href="/user/admin-1" class="link evene-trigger-login profile-redirect">Accédez à votre espace personnel</a></b>
+            </span>
+          </div>
+        </div>
+        <span class="evene-fav tooltip evene-fav-off tooltip-processeed">
+          <a class="flag flag-action flag-link-toggle unflagged flag-processed" href="/flag/flag/bookmarks/$doc.getFieldValue('nid')/long?token=4d8fa0c27be7dc3fd971639659cfe435" rel="nofollow">
+                          Ajouter à mes favoris                      </a>
+          <span class="num">0</span>
+        </span>
+      </li>
+    </ul>
+    #parse('share.vm')
+    <div class="enddiv"></div>
+  </div>

@@ -1,0 +1,171 @@
+## Mimetype to extension map for detecting file type and show icon
+## List of types match the icons in /solr/img/filetypes
+#set($extMap = {"application/x-7z-compressed": "7z",
+                 "application/postscript": "ai",
+                 "application/pgp-signature": "asc",
+                 "application/octet-stream": "bin",
+                 "application/x-bzip2": "bz2",
+                 "text/x-c": "c",
+                 "application/vnd.ms-htmlhelp": "chm",
+                 "application/java-vm": "class",
+                 "text/css": "css",
+                 "text/csv": "csv",
+                 "application/x-debian-package": "deb",
+                 "application/msword": "doc",
+                 "message/rfc822": "eml",
+                 "image/gif": "gif",
+                 "application/winhlp": "hlp",
+                 "text/html": "html",
+                 "application/java-archive": "jar",
+                 "text/x-java-source": "java",
+                 "image/jpeg": "jpeg",
+                 "application/javascript": "js",
+                 "application/vnd.oasis.opendocument.chart": "odc",
+                 "application/vnd.oasis.opendocument.formula": "odf",
+                 "application/vnd.oasis.opendocument.graphics": "odg",
+                 "application/vnd.oasis.opendocument.image": "odi",
+                 "application/vnd.oasis.opendocument.presentation": "odp",
+                 "application/vnd.oasis.opendocument.spreadsheet": "ods",
+                 "application/vnd.oasis.opendocument.text": "odt",
+                 "application/pdf": "pdf",
+                 "application/pgp-encrypted": "pgp",
+                 "image/png": "png",
+                 "application/vnd.ms-powerpoint": "ppt",
+                 "audio/x-pn-realaudio": "ram",
+                 "application/x-rar-compressed": "rar",
+                 "application/vnd.rn-realmedia": "rm",
+                 "application/rtf": "rtf",
+                 "application/x-shockwave-flash": "swf",
+                 "application/vnd.sun.xml.calc": "sxc",
+                 "application/vnd.sun.xml.draw": "sxd",
+                 "application/vnd.sun.xml.impress": "sxi",
+                 "application/vnd.sun.xml.writer": "sxw",
+                 "application/x-tar": "tar",
+                 "application/x-tex": "tex",
+                 "text/plain": "txt",
+                 "text/x-vcard": "vcf",
+                 "application/vnd.visio": "vsd",
+                 "audio/x-wav": "wav",
+                 "audio/x-ms-wma": "wma",
+                 "video/x-ms-wmv": "wmv",
+                 "application/vnd.ms-excel": "xls",
+                 "application/xml": "xml",
+                 "application/x-xpinstall": "xpi",
+                 "application/zip": "zip"})
+
+
+#if($doc.getFieldValue('title'))
+  #set($title = $esc.html($doc.getFirstValue('title')))
+#else
+  #set($title = "["+$doc.getFieldValue('id')+"]")
+#end
+
+#if($doc.getFieldValue('path'))
+  #set($url = $doc.getFieldValue('path'))
+#elseif($doc.getFieldValue('resourcename'))
+  #set($url = "file:///$doc.getFieldValue('resourcename')")
+#else
+  #set($url = "$doc.getFieldValue('id')")
+#end
+
+#if($doc.getFieldValue('path'))
+  #set($path = $doc.getFieldValue('path'))
+#else
+  #set($path = "node/" + $doc.getFieldValue('nid'))
+#end
+#set($supportedtypes = "7z;ai;aiff;asc;audio;bin;bz2;c;cfc;cfm;chm;class;conf;cpp;cs;css;csv;deb;divx;doc;dot;eml;enc;file;gif;gz;hlp;htm;html;image;iso;jar;java;jpeg;jpg;js;lua;m;mm;mov;mp3;mpg;odc;odf;odg;odi;odp;ods;odt;ogg;pdf;pgp;php;pl;png;ppt;ps;py;ram;rar;rb;rm;rpm;rtf;sig;sql;swf;sxc;sxd;sxi;sxw;tar;tex;tgz;txt;vcf;video;vsd;wav;wma;wmv;xls;xml;xpi;xvid;zip")
+#set($ct = $list.get($doc.getFirstValue('content_type').split(";"),0))
+#set($filename = $doc.getFieldValue('resourcename'))
+
+#set($filetype = false)
+#set($filetype = $extMap.get($ct))
+##TODO: falling back to file extension is convenient, except when you don't have an icon for that extension
+##      example "application/vnd.openxmlformats-officedocument.wordprocessingml.document" document
+##        with a .docx extension.  It'd be nice to fall back to an "unknown" or the existing "file" type
+##      We sort of do this below, but only if the filename has no extension (anything after the last dot).
+#if(!$filetype)#set($filetype = $filename.substring($filename.lastIndexOf(".")).substring(1))#end
+##if(!$filetype)#set($filetype = "file")#end
+##if(!$supportedtypes.contains($filetype))#set($filetype = "file")#end
+
+#if($doc.getFieldValue('picture'))
+#if($doc.getFieldValue('picture')!="" && $doc.getFieldValue('picture')!="files/user_pictures/picture-1.png")
+#set($pictureLink = "#domain_site_static/img/celeb/"+$doc.getFieldValue('picture'))
+#else
+#set($pictureLink = "")
+#end
+#else
+#set($pictureLink = "")
+#end
+
+
+
+#parse('debug.vm')
+
+
+<div class="block-aller-plus">
+
+<div class="node node-349217">
+  <div class="block-cdc block-cdc-citations">
+    <div class="txt">
+              <!--<h3>«&nbsp;<span class="filter-text"><a href="/citations/mot.php?mot=amour">Amour</a></span>, <span class="filter-text"><a href="/citations/mot.php?mot=amour">amour</a></span> ! Ton <a href="/citations/mot.php?mot=veritable">véritable</a> <a href="/citations/mot.php?mot=nom">nom</a> est <a href="/citations/mot.php?mot=jalousie">jalousie</a>.&nbsp;»</h3>-->
+                    #if($response.response.highlighting.get($docId).get('body').get(0))
+                    <h3>«&nbsp;#autolinkcitation($response.response.highlighting.get($docId).get('body').get(0),$doc.getFieldValue('ss_field_citation_keywords'), '/citations/mot.php?mot=' ).&nbsp;»</h3>
+                    #else
+                    <h3>«&nbsp;#autolinkcitation($doc.getFieldValue('body'),$doc.getFieldValue('ss_field_citation_keywords'), '/citations/mot.php?mot=' ).&nbsp;»</h3>
+                    #end
+                    #if($doc.getFieldValue('ss_field_citation_celebrity'))<h4>de #if($doc.getFieldValue('ss_field_citation_celebrity_path'))<a href="/$doc.getFieldValue('ss_field_citation_celebrity_path')">#end#field('ss_field_citation_celebrity')#if($doc.getFieldValue('ss_field_citation_celebrity_path'))</a>#end                      <a href="#tout($doc.getFieldValue('ss_field_citation_celebrity'))" class="filter-text-plus">[+]</a>
+                  </h4>#end
+                  #if($doc.getFieldValue('ss_field_citation_book'))
+                    <span class="author">Extrait du $doc.getFieldValue('ss_field_citation_book')                     <a href="#tout($doc.getFieldValue('ss_field_citation_book'))" class="filter-text-plus">[+]</a>
+                  </span>
+                  #end
+                  <span class="link">Plus sur <a href="/${path}" alt="plus d'information sur la citation de #field('ss_field_citation_celebrity') " title="plus d'information sur la citation de #field('ss_field_citation_celebrity') ">cette citation</a></span>
+                                <div class="evene-fav">
+        <div class="tooltip-info">
+
+      <div class="bottom-info">
+        <p><b>Vous aussi écrivez votre commentaire ou votre critique</b></p>
+        <span class="unteflutche link" onclick="EveneSite.unteflutche(&quot;#Z:Z3+GKHG=0s/7Yyot=EYF=0ypo?s-0z=-7YEo=-7YEoMFYs?o?s8/&quot;); return false;">Réagissez</span>        <div class="enddiv"></div>
+      </div>
+    </div>
+                  <div class="avis avis-small avis-empty tooltip tooltip-processeed"><span>&nbsp;</span></div>
+
+    <ul class="ui-content">
+
+
+        <li class="last">
+                      <div class="col">
+              Membres (41)            </div>
+            <div class="block-dynamic-stars block-dynamic-stars-small" id="citation_nid-$doc.getFieldValue('nid')">
+              <div class="fivestar-form-item fivestar-labels-hover fivestar-processed">
+                      <form action="/citations" accept-charset="UTF-8" method="post" id="evene-site-fivestar-citation-form-$doc.getFieldValue('nid')">
+      <div>
+        <div class="fivestar-form-item fivestar-labels-hover fivestar-form-item-main fivestar-processed">
+          <div class="form-item" id="edit-fivestar-rating-wrapper">
+            <label for="edit-fivestar-rating">Notation : <span class="form-required" title="Ce champ est obligatoire.">*</span></label>
+            <select name="fivestar_rating" class="form-select" id="edit-fivestar-rating-349217" style="display: none;">
+              <option value="-">Sélectionner la notation</option><option value="20">Médiocre</option><option value="40">Convenable</option><option value="60" selected="selected">Bien</option><option value="80">Merveilleux</option><option value="100">Impressionnant</option>
+            </select><div class="fivestar-widget clear-block fivestar-widget-5"><div class="star star-1 star-odd star-first on"><a href="#20" title="Médiocre" class="processed">Médiocre</a></div><div class="star star-2 star-even on"><a href="#40" title="Convenable" class="processed">Convenable</a></div><div class="star star-3 star-odd on"><a href="#60" title="Bien" class="processed">Bien</a></div><div class="star star-4 star-even"><a href="#80" title="Merveilleux" class="processed">Merveilleux</a></div><div class="star star-5 star-odd star-last"><a href="#100" title="Impressionnant" class="processed">Impressionnant</a></div></div>
+          <div class="description"><div class="fivestar-summary fivestar-feedback-enabled">&nbsp;</div></div>
+          </div>
+        </div>
+      </div>
+      </form>              </div>
+            </div>
+                  </li>
+          </ul>
+
+              <ul class="ui-content center">
+                                       <li class="first">
+             <a href="" class="evene-trigger-login evene-invite-link processed" onclick="return false;" style="display:none">Envoyer à un ami</a><a href="/fbconnect/invite/friends/$doc.getFieldValue('nid')" class="evene-fancybox-popup evene-invite-link-fb fancybox-false" style="">Envoyer à un ami</a><a href="/invite/friend/$doc.getFieldValue('nid')/citation" class="evene-fancybox-popup evene-invite-link-evene fancybox-false" style="display:none">Envoyer à un ami</a>           </li>
+                                         <li class="last">
+             <a href="/ajax/evene-citabook/add/citation/citabook/$doc.getFieldValue('nid')" class="evene-fancybox-popup-authorized fancybox-false">Dans mon citabook</a>           </li>
+                        </ul>
+      </div>
+          </div>
+    <div class="enddiv"></div>
+  </div>
+#parse('favoris-share.vm')
+  </div>
+  </div>
+
